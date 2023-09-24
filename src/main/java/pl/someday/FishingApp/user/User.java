@@ -30,6 +30,9 @@ public class User {
     private String surname;
 
     @NotBlank
+    private Long license;
+
+    @NotBlank
     @Email
     @Column(unique = true)
     private String email;
