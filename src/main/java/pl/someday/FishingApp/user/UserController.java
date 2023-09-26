@@ -14,12 +14,22 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    public String prepareRegistrationPage() {
-        return "";
+    public String showRegistrationPage() {
+        return "/user/register";
     }
 
     @PostMapping("/register")
-    public String processRegistrationPage() {
+    public String processRegistration() {
+        return "";
+    }
+
+    @GetMapping("/login")
+    public String showLoginPage(){
+        return"/user/login";
+    }
+
+    @PostMapping("/login")
+    public String processLogin(){
         return "";
     }
 }
