@@ -9,6 +9,7 @@ import pl.someday.FishingApp.fishingSession.FishingSession;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -29,7 +30,7 @@ public class User {
     @NotBlank
     private String surname;
 
-    @NotBlank
+    @NotNull
     @Column(unique = true)
     private Long license;
 
