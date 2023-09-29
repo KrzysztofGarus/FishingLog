@@ -3,9 +3,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>User dashboard</title>
+    <title>Home Page</title>
 </head>
 <body>
-<h1>Jesteś zalogowany :D</h1>
+<h1>Jesteś na stronie startowej</h1>
 </body>
 </html>
