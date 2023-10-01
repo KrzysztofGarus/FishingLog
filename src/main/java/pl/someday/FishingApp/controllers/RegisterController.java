@@ -33,6 +33,7 @@ import pl.someday.FishingApp.user.UserRepository;
         user.setSurname(surname);
         user.setLicense(license);
         user.setUsername(username);
+        user.setRole("USER");
         user.setPassword(passwordEncoder.encode(password));
         userRepository.save(user);
         return "redirect:/login";
