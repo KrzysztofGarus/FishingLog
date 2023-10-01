@@ -1,12 +1,12 @@
-package pl.someday.FishingApp.fishingSession;
+package pl.someday.FishingApp.model.fishingSession;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.someday.FishingApp.fish.Fish;
-import pl.someday.FishingApp.fishingSpot.FishingSpot;
-import pl.someday.FishingApp.user.User;
+import pl.someday.FishingApp.model.fish.Fish;
+import pl.someday.FishingApp.model.fishingSpot.FishingSpot;
+import pl.someday.FishingApp.model.user.User;
 
 import javax.persistence.*;
 
@@ -36,6 +36,15 @@ public class FishingSession {
     @JoinColumn(name = "fishing_spot_id")
     private FishingSpot fishingSpot;
 
-    @OneToMany(mappedBy = "fishingSession", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "fishingSession", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Fish> fishList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "FishingSession{" +
+                "id=" + id +
+                ", date=" + date +
+                ", fishingSpot=" + fishingSpot +
+                '}';
+    }
 }

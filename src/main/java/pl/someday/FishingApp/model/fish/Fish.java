@@ -1,10 +1,10 @@
-package pl.someday.FishingApp.fish;
+package pl.someday.FishingApp.model.fish;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.someday.FishingApp.fishingSession.FishingSession;
+import pl.someday.FishingApp.model.fishingSession.FishingSession;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

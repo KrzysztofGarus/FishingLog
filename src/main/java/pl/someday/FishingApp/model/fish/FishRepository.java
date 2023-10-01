@@ -1,4 +1,4 @@
-package pl.someday.FishingApp.fish;
+package pl.someday.FishingApp.model.fish;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
