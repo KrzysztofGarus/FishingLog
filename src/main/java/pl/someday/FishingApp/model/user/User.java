@@ -47,6 +47,8 @@ public class User implements UserDetails {
 
     private String role;
 
+    private Boolean active;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FishingSession> fishingSessions;
 
