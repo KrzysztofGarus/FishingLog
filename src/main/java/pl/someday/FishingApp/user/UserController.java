@@ -17,8 +17,13 @@ public class UserController {
     }
 
     @GetMapping("/user/dashboard")
-    public String showDashboard(){
+    public String showUserDashboard(){
         return "/user/dashboard";
+    }
+
+    @GetMapping("/admin/dashboard")
+    public String showAdminDashboard(){
+        return "/admin/dashboard";
     }
 }
 
