@@ -12,7 +12,7 @@
     <a href='<c:url value="/user/session/add"/>'>Dodaj sesję</a>
 </div>
 <div>
-    <table>
+    <table class="styled-table">
         <tr>
             <th>Id</th>
             <th>Date</th>
@@ -28,7 +28,7 @@
                 <td>
                     <ul>
                         <c:forEach items="${fishingSession.fishList}" var="fish">
-                            <li>${fish.name} ${fish.weight} kg ${fish.length} cm</li>
+                            <li>${fish.name} / ${fish.weight} kg / ${fish.length} cm</li>
                         </c:forEach>
                     </ul>
                 </td>
