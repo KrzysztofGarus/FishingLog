@@ -1,10 +1,10 @@
-package pl.someday.FishingApp.user;
+package pl.someday.FishingApp.model.user;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import pl.someday.FishingApp.fishingSession.FishingSession;
+import pl.someday.FishingApp.model.fishingSession.FishingSession;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

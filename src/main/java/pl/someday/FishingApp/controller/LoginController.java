@@ -1,4 +1,4 @@
-package pl.someday.FishingApp.controllers;
+package pl.someday.FishingApp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

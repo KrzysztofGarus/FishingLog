@@ -1,4 +1,4 @@
-package pl.someday.FishingApp.user;
+package pl.someday.FishingApp.model.user;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
