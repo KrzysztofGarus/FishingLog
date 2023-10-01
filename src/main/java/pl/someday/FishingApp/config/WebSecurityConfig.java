@@ -6,9 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.someday.FishingApp.model.user.UserDetailsServiceImpl;
+
+import java.util.Collection;
+import java.util.Objects;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -35,6 +39,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
-                .formLogin().defaultSuccessUrl("/user/dashboard");
+                .formLogin()
+                .successHandler((request, response, authentication) -> {
+                    Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+                    for (GrantedAuthority authority : authorities) {
+                        System.out.println("Authority: " + authority.getAuthority());
+                        if (Objects.equals(authority.getAuthority(), "ROLE_ADMIN")) {
+                            System.out.println("ADMIN logged in");
+                            response.sendRedirect("/admin/dashboard");
+                        } else {
+                            System.out.println("User logged in");
+                            response.sendRedirect("/user/dashboard");
+                        }
+                    }
+                });
     }
 }
