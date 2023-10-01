@@ -34,6 +34,7 @@ import pl.someday.FishingApp.user.UserRepository;
         user.setLicense(license);
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
+        user.setRole("USER"); // default USER role
         userRepository.save(user);
         return "redirect:/login";
     }
