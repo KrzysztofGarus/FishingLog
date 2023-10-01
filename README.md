@@ -14,5 +14,6 @@ Technologie użyte w projekcie:
 - Spring Boot
 - Spring Data JPA
 - Spring Web MVC
+- Spring Security
 - Hibernate
 - MySQL
