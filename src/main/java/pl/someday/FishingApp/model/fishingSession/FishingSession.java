@@ -36,15 +36,7 @@ public class FishingSession {
     @JoinColumn(name = "fishing_spot_id")
     private FishingSpot fishingSpot;
 
-    @OneToMany(mappedBy = "fishingSession", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "fishingSession", cascade = CascadeType.ALL, orphanRemoval = true, )
     private List<Fish> fishList = new ArrayList<>();
 
-    @Override
-    public String toString() {
-        return "FishingSession{" +
-                "id=" + id +
-                ", date=" + date +
-                ", fishingSpot=" + fishingSpot +
-                '}';
-    }
 }
