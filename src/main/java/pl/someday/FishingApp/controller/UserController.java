@@ -36,6 +36,12 @@ public class UserController {
         return "/user/sessions";
     }
 
+    @GetMapping("/maps")
+    public String showMapForSelectedID(){
+        // TODO - dodać obsługę parametru żądania
+        return "/user/maps";
+    }
+
 }
 
 
