@@ -32,8 +32,8 @@
                         </c:forEach>
                     </ul>
                 </td>
-                <td><a href="/views/sessions/update?id=${fishingSession.id}">Edytuj</a><br/>
-                    <a href="/views/sessions/delete?id=${fishingSession.id}">Usuń</a>
+                <td><a href="/user/session/update?id=${fishingSession.id}">Edytuj</a><br/>
+                    <a href="/user/session/delete?id=${fishingSession.id}">Usuń</a>
                 </td>
             </tr>
         </c:forEach>
