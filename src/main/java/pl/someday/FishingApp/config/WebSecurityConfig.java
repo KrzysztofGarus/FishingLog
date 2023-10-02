@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.someday.FishingApp.model.user.UserDetailsServiceImpl;
 
 import java.util.Collection;
-import java.util.Objects;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
