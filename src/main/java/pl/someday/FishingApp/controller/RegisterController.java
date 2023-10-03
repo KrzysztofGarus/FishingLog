@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.someday.FishingApp.model.user.User;
 import pl.someday.FishingApp.model.user.UserRepository;
 
-@Controller public class RegisterController {
+@Controller
+public class RegisterController {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
