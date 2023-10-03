@@ -30,11 +30,7 @@ public class UserController {
         return "/user/dashboard";
     }
 
-    @GetMapping("/sessions")
-    public String showUserSessions(@AuthenticationPrincipal User user, Model model){
-        model.addAttribute("fishingSessions", fishingSessionRepository.findByUserUsername(user.getUsername()));
-        return "/user/sessions";
-    }
+
 
     @GetMapping("/maps")
     public String showMapForSelectedID(){
