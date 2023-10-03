@@ -48,7 +48,7 @@ public class FishingSessionController {
 
     @PostMapping("/delete")
     public String deleteSession(@RequestParam Long id) {
-        Optional<FishingSession> fishingSession = fishingSessionRepository.findById(id);
+        FishingSession fishingSession = fishingSessionRepository.getFishingSessionById(id);
         fishingSessionRepository.delete(fishingSession);
         return "/user/sessions";
     }
