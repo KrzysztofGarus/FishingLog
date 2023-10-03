@@ -10,7 +10,9 @@ import java.util.Optional;
 public interface FishingSessionRepository extends JpaRepository<FishingSession, Long> {
 
     List<FishingSession> findByUserUsername(String username);
-    Optional<FishingSession> findById(Long id);
-    void delete(Optional<FishingSession> fishingSession);
+
+    FishingSession getFishingSessionById(Long id);
+
+    void delete(FishingSession fishingSession);
 }
 
