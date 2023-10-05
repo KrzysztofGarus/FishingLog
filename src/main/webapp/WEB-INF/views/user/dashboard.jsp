@@ -11,7 +11,7 @@
 <body>
 <h1>Jesteś zalogowany :D</h1>
 
-<a class="btn btn-primary" href='<c:url value="/user/sessions"/>' role="button">Rejestr</a>
+<a class="btn btn-primary" href='<c:url value="/user/session/all"/>' role="button">Rejestr</a>
 <a class="btn btn-primary" href='<c:url value="/user/maps"/>' role="button">Mapy</a>
 
 </body>
