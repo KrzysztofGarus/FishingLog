@@ -14,16 +14,14 @@ import pl.someday.FishingApp.model.fishingSpot.FishingSpotRepository;
 import pl.someday.FishingApp.model.user.User;
 import pl.someday.FishingApp.model.user.UserRepository;
 
-import java.util.Optional;
-
 @Controller
 @RequestMapping("/user/session")
 public class FishingSessionController {
 
     private final UserRepository userRepository;
     private final FishingSessionRepository fishingSessionRepository;
-
     private final FishingSpotRepository fishingSpotRepository;
+
 
     @Autowired
     public FishingSessionController(UserRepository userRepository, FishingSessionRepository fishingSessionRepository, FishingSpotRepository fishingSpotRepository) {
@@ -50,12 +48,26 @@ public class FishingSessionController {
     public String deleteSession(@RequestParam Long id) {
         FishingSession fishingSession = fishingSessionRepository.getFishingSessionById(id);
         fishingSessionRepository.delete(fishingSession);
-        return "/user/sessions";
+        return "/user/dashboard";
     }
 
     @GetMapping("/all")
     public String showUserSessions(@AuthenticationPrincipal User user, Model model){
         model.addAttribute("fishingSessions", fishingSessionRepository.findByUserUsername(user.getUsername()));
-        return "/user/sessions";
+        return "/user/session/session-list";
+    }
+
+    @GetMapping("/update")
+    public String editSession(@RequestParam Long id, Model model){
+        FishingSession fishingSession = fishingSessionRepository.getFishingSessionById(id);
+        model.addAttribute("fishingSession", fishingSession);
+        model.addAttribute("spotList", fishingSpotRepository.findAll());
+        return "/user/session/session-update";
+    }
+
+    @PostMapping("/update")
+    public String editSessionId(FishingSession fishingSession){
+        fishingSessionRepository.save(fishingSession);
+        return "redirect:/user/session/session-list";
     }
 }
