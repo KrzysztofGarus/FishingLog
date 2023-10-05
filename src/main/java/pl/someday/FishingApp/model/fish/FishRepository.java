@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FishRepository extends JpaRepository<Fish, Long> {
 
+    Fish getFishById(Long id);
+    void delete(Fish fish);
+
 }
