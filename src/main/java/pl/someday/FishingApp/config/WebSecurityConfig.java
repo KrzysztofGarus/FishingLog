@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import pl.someday.FishingApp.model.user.UserDetailsServiceImpl;
 
 import java.util.Collection;
@@ -37,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/user/**").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .successHandler((request, response, authentication) -> {
@@ -54,6 +56,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             response.sendRedirect("/user/dashboard");
                         }
                     }
-                });
+                })
+                .and()
+                .csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());;
     }
 }
