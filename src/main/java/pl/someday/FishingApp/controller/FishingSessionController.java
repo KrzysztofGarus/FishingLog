@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.someday.FishingApp.model.fishingSession.FishingSession;
 import pl.someday.FishingApp.model.fishingSession.FishingSessionRepository;
 import pl.someday.FishingApp.model.fishingSpot.FishingSpotRepository;
@@ -44,11 +41,16 @@ public class FishingSessionController {
         return "redirect:/user/dashboard";
     }
 
+    @GetMapping("/delete")
+    public String deleteSessionID(@RequestParam Long id, Model model){
+        model.addAttribute("fishingSession", fishingSessionRepository.getFishingSessionById(id));
+        return "/user/session/session-delete";
+    }
     @PostMapping("/delete")
     public String deleteSession(@RequestParam Long id) {
         FishingSession fishingSession = fishingSessionRepository.getFishingSessionById(id);
         fishingSessionRepository.delete(fishingSession);
-        return "/user/dashboard";
+        return "redirect:/user/session/all";
     }
 
     @GetMapping("/all")
@@ -68,6 +70,7 @@ public class FishingSessionController {
     @PostMapping("/update")
     public String editSessionId(FishingSession fishingSession){
         fishingSessionRepository.save(fishingSession);
-        return "redirect:/user/session/session-list";
+        return "redirect:/user/session/all";
     }
+
 }
