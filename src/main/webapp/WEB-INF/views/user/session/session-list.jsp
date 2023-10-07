@@ -14,7 +14,6 @@
 <div>
     <table class="styled-table">
         <tr>
-            <th>Id</th>
             <th>Date</th>
             <th>Spot name</th>
             <th>Fishes</th>
@@ -22,7 +21,6 @@
         </tr>
         <c:forEach items="${fishingSessions}" var="fishingSession">
             <tr>
-                <td>${fishingSession.id}</td>
                 <td>${fishingSession.date}</td>
                 <td>${fishingSession.fishingSpot.name}</td>
                 <td>
