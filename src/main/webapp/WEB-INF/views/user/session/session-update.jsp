@@ -8,11 +8,10 @@
     <title>Edytuj Sesję</title>
 </head>
 <body>
-<form:form method="patch" modelAttribute="fishingSession">
+<form:form method="post" modelAttribute="fishingSession">
     <c:set var="currentDate" value="<fmt:formatDate>" />
     Data: <form:input path="date" type="date" value="${currentDate}" />
     Spot: <form:select path="fishingSpot.id" items="${spotList}" itemLabel="name" itemValue="id" />
-    <input type="hidden" name="user" value="${fishingSession.user.id}"/>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <form:button>Zapisz</form:button>
 </form:form>
