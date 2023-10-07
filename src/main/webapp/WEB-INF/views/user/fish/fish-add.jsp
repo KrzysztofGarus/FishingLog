@@ -9,7 +9,7 @@
 </head>
 <body>
 <form:form method="post" modelAttribute="fish">
-  Nazwa: <form:input path="name" type="text"/>
+  Nazwa: <form:select path="fishName" items="${fishNames}" itemLabel="name" itemValue="id" />
   Waga: <form:input path="weight" type="number" min="0" max="9999" step="0.1"/>
   Długość: <form:input path="length" type="number" min="0" max="999" step="0.1"/>
   <form:input path="fishingSession" type="hidden" value="${fishingSession}"/>
