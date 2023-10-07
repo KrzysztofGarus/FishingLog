@@ -28,8 +28,13 @@
                 <td>
                     <ul>
                         <c:forEach items="${fishingSession.fishList}" var="fish">
-                            <li>${fish.fishName.name} / ${fish.weight} kg / ${fish.length} cm</li>
+                            <li>${fish.fishName.name} / ${fish.weight} kg / ${fish.length} cm <a href="/user/fish/update?id=${fish.id}">Edytuj</a>
+                                <a href="/user/fish/delete?id=${fish.id}">Usuń</a></li>
+
                         </c:forEach>
+                        <li>
+                            <a href="/user/fish/add?sessionId=${fishingSession.id}">Dodaj rybę</a>
+                        </li>
                     </ul>
                 </td>
                 <td><a href="/user/session/update?id=${fishingSession.id}">Edytuj</a><br/>
