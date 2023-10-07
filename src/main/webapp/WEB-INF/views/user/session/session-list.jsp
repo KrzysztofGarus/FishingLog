@@ -28,7 +28,7 @@
                 <td>
                     <ul>
                         <c:forEach items="${fishingSession.fishList}" var="fish">
-                            <li>${fish.name} / ${fish.weight} kg / ${fish.length} cm</li>
+                            <li>${fish.fishName.name} / ${fish.weight} kg / ${fish.length} cm</li>
                         </c:forEach>
                     </ul>
                 </td>
