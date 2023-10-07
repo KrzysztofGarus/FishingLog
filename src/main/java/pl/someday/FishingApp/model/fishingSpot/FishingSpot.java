@@ -23,7 +23,4 @@ public class FishingSpot {
 
     @NotBlank
     private String name;
-
-    @OneToMany(mappedBy = "fishingSpot", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<FishingSession> fishingSessions;
 }
