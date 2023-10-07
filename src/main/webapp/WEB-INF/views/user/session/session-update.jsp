@@ -13,7 +13,7 @@
     Data: <form:input path="date" type="date" value="${currentDate}" />
     Spot: <form:select path="fishingSpot.id" items="${spotList}" itemLabel="name" itemValue="id" />
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    <form:button>Zapisz</form:button>
+    <form:button>Zapisz zmiany</form:button>
 </form:form>
 </body>
 </html>
