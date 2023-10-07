@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.someday.FishingApp.model.fishName.FishName;
 import pl.someday.FishingApp.model.fishingSession.FishingSession;
+import pl.someday.FishingApp.model.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -22,8 +24,9 @@ public class Fish {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "fishes_names_id")
+    private FishName fishName;
 
     @Column(precision = 4, scale = 1)
     private BigDecimal length;
