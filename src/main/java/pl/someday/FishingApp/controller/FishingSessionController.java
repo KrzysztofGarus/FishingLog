@@ -68,7 +68,10 @@ public class FishingSessionController {
     }
 
     @PostMapping("/update")
-    public String editSessionId(FishingSession fishingSession){
+    public String editSession(@RequestParam Long id, @ModelAttribute("fishingSession") FishingSession updatedSession) {
+        FishingSession fishingSession = fishingSessionRepository.getFishingSessionById(id);
+        fishingSession.setDate(updatedSession.getDate());
+        fishingSession.setFishingSpot(updatedSession.getFishingSpot());
         fishingSessionRepository.save(fishingSession);
         return "redirect:/user/session/all";
     }
