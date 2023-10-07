@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface FishingSessionRepository extends JpaRepository<FishingSession, Long> {
 
-    List<FishingSession> findByUserUsername(String username);
+    List<FishingSession> findByUserUsernameOrderByDateDesc(String username);
 
     FishingSession getFishingSessionById(Long id);
 

@@ -55,7 +55,7 @@ public class FishingSessionController {
 
     @GetMapping("/all")
     public String showUserSessions(@AuthenticationPrincipal User user, Model model){
-        model.addAttribute("fishingSessions", fishingSessionRepository.findByUserUsername(user.getUsername()));
+        model.addAttribute("fishingSessions", fishingSessionRepository.findByUserUsernameOrderByDateDesc(user.getUsername()));
         return "/user/session/session-list";
     }
 
