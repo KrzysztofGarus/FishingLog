@@ -61,6 +61,18 @@ public class AdminController {
         return "redirect:/admin/fish/all";
     }
 
+    @GetMapping("/spot/list")
+    public String showListOfFishingSpots(Model model){
+        model.addAttribute("fishingSpotList", fishingSpotRepository.findAllByOrderByName());
+        return "/admin/spot-list";
+    }
+
+    @GetMapping("/spot/details")
+    public String showDetailsOfFishingSpot(@RequestParam Long id, Model model){
+        model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsForSpot(id));
+        return "/admin/spot-details";
+    }
+
 }
 
 
