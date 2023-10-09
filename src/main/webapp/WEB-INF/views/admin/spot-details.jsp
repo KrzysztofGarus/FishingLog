@@ -54,6 +54,9 @@
 <body>
 <div id="donutchart" style="width: 900px; height: 500px;"></div>
 <div id="calendar_basic" style="width: 1000px; height: 350px;"></div>
+<c:forEach var="sdc" items="${SessionDateCount}">
+    [new Date(${sdc.dateString}), ${sdc.count}],
+</c:forEach>
 </body>
 </html>
 
