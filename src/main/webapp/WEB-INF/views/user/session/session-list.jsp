@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>Sesje wędkarskie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href=<c:url value="/css/style.css"/>>
 </head>
 <body>
@@ -31,12 +32,12 @@
 
                         </c:forEach>
                         <li>
-                            <a href="/user/fish/add?sessionId=${fishingSession.id}">Dodaj rybę</a>
+                            <a class="btn btn-success" href='<c:url value="/user/fish/add?sessionId=${fishingSession.id}"/>' role="button">Dodaj rybę</a>
                         </li>
                     </ul>
                 </td>
-                <td><a href="/user/session/update?id=${fishingSession.id}">Edytuj</a><br/>
-                    <a href="/user/session/delete?id=${fishingSession.id}">Usuń</a>
+                <td><a class="btn btn-warning" href='<c:url value="/user/session/update?id=${fishingSession.id}"/>' role="button">Edytuj</a>
+                    <a class="btn btn-danger" href='<c:url value="/user/session/delete?id=${fishingSession.id}"/>' role="button">Usuń</a>
                 </td>
             </tr>
         </c:forEach>
