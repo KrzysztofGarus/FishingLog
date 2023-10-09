@@ -1,13 +1,12 @@
 package pl.someday.FishingApp.model.fishingSession;
 
-import org.hibernate.annotations.NamedNativeQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pl.someday.FishingApp.dto.FishCountForSpotDTO;
+import pl.someday.FishingApp.dto.FishingSpotCalendarDTO;
 
-import java.lang.annotation.Native;
 import java.util.List;
 
 @Repository
@@ -27,6 +26,12 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
             "WHERE spot.id = :spotId " +
             "GROUP BY fn.name")
     List<FishCountForSpotDTO> getFishCountsForSpot(@Param("spotId") Long spotId);
+
+    @Query("SELECT new pl.someday.FishingApp.dto.FishingSpotCalendarDTO(fs.date, COUNT(fs)) " +
+            "FROM FishingSession fs " +
+            "WHERE fs.fishingSpot.id = :spotId " +
+            "GROUP BY fs.date")
+    List<FishingSpotCalendarDTO> getSessionCountForSpotAndDate(@Param("spotId") Long spotId);
 
 
 
