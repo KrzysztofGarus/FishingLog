@@ -4,12 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Nazwy spotów</title>
     <link rel="stylesheet" href=<c:url value="/css/style.css"/>>
 </head>
 <body>
 <div>
-    <a href='<c:url value="/admin/spot/add"/>'>Dodaj Spot</a>
+    <a class="btn btn-primary" href='<c:url value="/admin/dashboard"/>' role="button">Dashboard</a>
+    <a class="btn btn-success" href='<c:url value="/admin/spot/add"/>' role="button">Dodaj Spot</a>
 </div>
 <div>
     <table class="styled-table">
@@ -20,9 +22,10 @@
         <c:forEach items="${fishingSpotList}" var="fishingSpot">
             <tr>
                 <td>${fishingSpot.name}</td>
-                <td><a href="/admin/spot/details?id=${fishingSpot.id}">Szczegóły</a><br/>
-                    <a href="/admin/spot/update?id=${fishingSpot.id}">Edytuj</a><br/>
-                    <a href="/admin/spot/delete?id=${fishingSpot.id}">Usuń</a>
+                <td>
+                    <a class="btn btn-info" href='<c:url value="/admin/spot/details?id=${fishingSpot.id}"/>' role="button">Szczegóły</a>
+                    <a class="btn btn-warning" href='<c:url value="/admin/spot/update?id=${fishingSpot.id}"/>' role="button">Edytuj</a>
+                    <a class="btn btn-danger" href='<c:url value="/admin/spot/delete?id=${fishingSpot.id}"/>' role="button">Usuń</a>
                 </td>
             </tr>
         </c:forEach>
