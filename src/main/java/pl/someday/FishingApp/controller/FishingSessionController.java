@@ -38,7 +38,7 @@ public class FishingSessionController {
     public String addSessionForUser(@AuthenticationPrincipal User user, FishingSession fishingSession){
         fishingSession.setUser(user);
         fishingSessionRepository.save(fishingSession);
-        return "redirect:/user/dashboard";
+        return "redirect:/user/session/all";
     }
 
     @GetMapping("/delete")
