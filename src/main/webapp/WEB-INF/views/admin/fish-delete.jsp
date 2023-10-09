@@ -14,7 +14,7 @@
 <form:form method="post" action="${pageContext.request.contextPath}/admin/fish/delete" csrf="${_csrf.parameterName}" csrf_token="${_csrf.token}">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <input type="hidden" name="id" value="${fishName.id}" />
-    <button type="submit">Usuń sesję</button>
+    <button type="submit">Usuń rybę</button>
 </form:form>
 </body>
 </html>
