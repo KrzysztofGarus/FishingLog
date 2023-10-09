@@ -4,12 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Nazwy Ryb</title>
     <link rel="stylesheet" href=<c:url value="/css/style.css"/>>
 </head>
 <body>
 <div>
-    <a href='<c:url value="/admin/fish/add"/>'>Dodaj Rybę</a>
+    <a class="btn btn-primary" href='<c:url value="/admin/dashboard"/>' role="button">Dashboard</a>
+    <a class="btn btn-success" href='<c:url value="/admin/fish/add"/>' role="button">Dodaj Rybę</a>
 </div>
 <div>
     <table class="styled-table">
@@ -22,8 +24,9 @@
             <tr>
                 <td>${fishName.id}</td>
                 <td>${fishName.name}</td>
-                <td><a href="/admin/fish/update?id=${fishName.id}">Edytuj</a><br/>
-                    <a href="/admin/fish/delete?id=${fishName.id}">Usuń</a>
+                <td>
+                    <a class="btn btn-warning" href='<c:url value="/admin/fish/update?id=${fishName.id}"/>' role="button">Edytuj</a>
+                    <a class="btn btn-danger" href='<c:url value="/admin/fish/delete?id=${fishName.id}"/>' role="button">Usuń</a>
                 </td>
             </tr>
         </c:forEach>
