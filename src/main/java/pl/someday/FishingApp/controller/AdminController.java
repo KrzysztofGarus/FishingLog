@@ -9,6 +9,7 @@ import pl.someday.FishingApp.model.fishName.FishNameRepository;
 import pl.someday.FishingApp.model.fishingSession.FishingSessionRepository;
 import pl.someday.FishingApp.model.fishingSpot.FishingSpotRepository;
 import pl.someday.FishingApp.model.user.UserRepository;
+import pl.someday.FishingApp.service.DateFormatterForDTO;
 
 @Controller
 @RequestMapping("/admin")
@@ -69,7 +70,9 @@ public class AdminController {
 
     @GetMapping("/spot/details")
     public String showDetailsOfFishingSpot(@RequestParam Long id, Model model){
+        DateFormatterForDTO dto = new DateFormatterForDTO();
         model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsForSpot(id));
+        model.addAttribute("SessionDateCount", dto.changeDateFormat(fishingSessionRepository.getSessionCountForSpotAndDate(id)));
         return "/admin/spot-details";
     }
 
