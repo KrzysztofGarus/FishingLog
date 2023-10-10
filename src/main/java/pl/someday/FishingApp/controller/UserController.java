@@ -1,16 +1,10 @@
 package pl.someday.FishingApp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.someday.FishingApp.model.fishingSession.FishingSession;
-import pl.someday.FishingApp.model.fishingSession.FishingSessionRepository;
-import pl.someday.FishingApp.model.user.User;
-import pl.someday.FishingApp.model.user.UserRepository;
-
-import java.util.List;
+import pl.someday.FishingApp.repository.FishingSessionRepository;
+import pl.someday.FishingApp.repository.UserRepository;
 
 @Controller
 @RequestMapping("/user")
