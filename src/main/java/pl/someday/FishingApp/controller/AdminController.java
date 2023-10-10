@@ -71,7 +71,7 @@ public class AdminController {
     @GetMapping("/spot/details")
     public String showDetailsOfFishingSpot(@RequestParam Long id, Model model){
         DateFormatterForDTO dto = new DateFormatterForDTO();
-        model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsForSpot(id));
+        model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsAndWeightForSpot(id));
         model.addAttribute("SessionDateCount", dto.processDates(fishingSessionRepository.getSessionCountForSpotAndDate(id)));
         return "/admin/spot-details";
     }
