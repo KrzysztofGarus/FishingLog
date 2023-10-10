@@ -5,11 +5,11 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.someday.FishingApp.model.fishingSession.FishingSession;
-import pl.someday.FishingApp.model.fishingSession.FishingSessionRepository;
-import pl.someday.FishingApp.model.fishingSpot.FishingSpotRepository;
-import pl.someday.FishingApp.model.user.User;
-import pl.someday.FishingApp.model.user.UserRepository;
+import pl.someday.FishingApp.model.FishingSession;
+import pl.someday.FishingApp.repository.FishingSessionRepository;
+import pl.someday.FishingApp.repository.FishingSpotRepository;
+import pl.someday.FishingApp.model.User;
+import pl.someday.FishingApp.repository.UserRepository;
 
 @Controller
 @RequestMapping("/user/session")
