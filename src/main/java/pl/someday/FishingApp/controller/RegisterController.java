@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.someday.FishingApp.model.user.User;
-import pl.someday.FishingApp.model.user.UserRepository;
+import pl.someday.FishingApp.model.User;
+import pl.someday.FishingApp.repository.UserRepository;
 
 @Controller
 public class RegisterController {
