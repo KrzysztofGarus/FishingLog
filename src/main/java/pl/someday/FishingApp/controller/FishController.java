@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.someday.FishingApp.model.fish.Fish;
-import pl.someday.FishingApp.model.fish.FishRepository;
-import pl.someday.FishingApp.model.fishName.FishNameRepository;
-import pl.someday.FishingApp.model.fishingSession.FishingSession;
-import pl.someday.FishingApp.model.fishingSession.FishingSessionRepository;
+import pl.someday.FishingApp.model.Fish;
+import pl.someday.FishingApp.repository.FishRepository;
+import pl.someday.FishingApp.repository.FishNameRepository;
+import pl.someday.FishingApp.model.FishingSession;
+import pl.someday.FishingApp.repository.FishingSessionRepository;
 
 import java.util.List;
 
