@@ -36,7 +36,7 @@
             dataTable.addColumn({ type: 'number', id: 'Count' });
             dataTable.addRows([
                 <c:forEach var="sdc" items="${SessionDateCount}">
-                [new Date(${sdc.dateString}), ${sdc.count}],
+                [new Date(${sdc.stringDate}), ${sdc.count}],
                 </c:forEach>
             ]);
 
@@ -45,6 +45,10 @@
             var options = {
                 title: "Fishing Spot Attendance",
                 height: 350,
+                noDataPattern: {
+                    backgroundColor: '#008000',
+                    color: '#98d498'
+                }
             };
 
             chart.draw(dataTable, options);
@@ -54,9 +58,6 @@
 <body>
 <div id="donutchart" style="width: 900px; height: 500px;"></div>
 <div id="calendar_basic" style="width: 1000px; height: 350px;"></div>
-<c:forEach var="sdc" items="${SessionDateCount}">
-    [new Date(${sdc.dateString}), ${sdc.count}],
-</c:forEach>
 </body>
 </html>
 
