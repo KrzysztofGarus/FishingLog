@@ -10,7 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import pl.someday.FishingApp.model.user.UserDetailsServiceImpl;
+import pl.someday.FishingApp.service.UserDetailsServiceImpl;
 
 import java.util.Collection;
 
