@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.someday.FishingApp.model.fishName.FishName;
-import pl.someday.FishingApp.model.fishName.FishNameRepository;
-import pl.someday.FishingApp.model.fishingSession.FishingSessionRepository;
-import pl.someday.FishingApp.model.fishingSpot.FishingSpotRepository;
-import pl.someday.FishingApp.model.user.UserRepository;
+import pl.someday.FishingApp.model.FishName;
+import pl.someday.FishingApp.repository.FishNameRepository;
+import pl.someday.FishingApp.repository.FishingSessionRepository;
+import pl.someday.FishingApp.repository.FishingSpotRepository;
+import pl.someday.FishingApp.repository.UserRepository;
 import pl.someday.FishingApp.service.DateFormatterForDTO;
 
 @Controller
@@ -72,7 +72,7 @@ public class AdminController {
     public String showDetailsOfFishingSpot(@RequestParam Long id, Model model){
         DateFormatterForDTO dto = new DateFormatterForDTO();
         model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsForSpot(id));
-        model.addAttribute("SessionDateCount", dto.changeDateFormat(fishingSessionRepository.getSessionCountForSpotAndDate(id)));
+        model.addAttribute("SessionDateCount", dto.processDates(fishingSessionRepository.getSessionCountForSpotAndDate(id)));
         return "/admin/spot-details";
     }
 
