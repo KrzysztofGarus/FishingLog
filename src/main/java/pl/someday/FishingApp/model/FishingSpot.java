@@ -1,13 +1,12 @@
-package pl.someday.FishingApp.model.fishingSpot;
+package pl.someday.FishingApp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.someday.FishingApp.model.fishingSession.FishingSession;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 @Entity
 @Getter

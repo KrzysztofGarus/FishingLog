@@ -1,4 +1,4 @@
-package pl.someday.FishingApp.model.fishName;
+package pl.someday.FishingApp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

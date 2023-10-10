@@ -1,15 +1,11 @@
-package pl.someday.FishingApp.model.fish;
+package pl.someday.FishingApp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.someday.FishingApp.model.fishName.FishName;
-import pl.someday.FishingApp.model.fishingSession.FishingSession;
-import pl.someday.FishingApp.model.user.User;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
 @Entity

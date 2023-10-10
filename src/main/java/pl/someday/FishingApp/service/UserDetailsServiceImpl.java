@@ -1,12 +1,11 @@
-package pl.someday.FishingApp.model.user;
+package pl.someday.FishingApp.service;
 
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Set;
+import pl.someday.FishingApp.model.User;
+import pl.someday.FishingApp.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

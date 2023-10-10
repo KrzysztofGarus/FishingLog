@@ -1,17 +1,14 @@
-package pl.someday.FishingApp.model.fishingSession;
+package pl.someday.FishingApp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.someday.FishingApp.model.fish.Fish;
-import pl.someday.FishingApp.model.fishingSpot.FishingSpot;
-import pl.someday.FishingApp.model.user.User;
 
 import javax.persistence.*;
 
 import java.util.ArrayList;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -26,7 +23,7 @@ public class FishingSession {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date date;
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
