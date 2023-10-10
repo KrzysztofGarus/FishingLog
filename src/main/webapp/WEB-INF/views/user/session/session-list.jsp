@@ -10,7 +10,7 @@
 </head>
 <body>
 <div>
-    <a href='<c:url value="/user/session/add"/>'>Dodaj sesję</a>
+    <a class="btn btn-primary" href='<c:url value="/user/session/add"/>' role="button">Dodaj sesję</a>
 </div>
 <div>
     <table class="styled-table">
