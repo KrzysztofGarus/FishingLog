@@ -4,18 +4,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
 public class FishingSpotCalendarDTO {
 
-    private Date date;
+    private LocalDate date;
     private Long count;
-    private String dateString;
+    private String StringDate;
 
-    public FishingSpotCalendarDTO(Date date, Long count) {
+    public FishingSpotCalendarDTO(LocalDate date, Long count) {
         this.date = date;
         this.count = count;
+    }
+
+    public FishingSpotCalendarDTO(LocalDate date, Long count, String StringDate) {
+        this.date = date;
+        this.count = count;
+        this.StringDate = StringDate;
     }
 }
