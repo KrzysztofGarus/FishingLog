@@ -45,19 +45,20 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <!-- Page Name -->
-                <h2 class="h2">Dodaj łowisko</h2>
+                <h2 class="h2">Edytuj łowisko</h2>
                 <!-- Page Name -->
             </div>
             <!-- Page Content -->
             <div class="container-fluid">
                 <div class="row" style="text-align: left">
                     <div class="mx-lg-1" style="width: 500px; padding-top: 20px">
-                        <form:form method="post" modelAttribute="fishingSpot" >
-                            <div class="mb-3">
-                                <label for="name" class="form-label" >Nazwa</label>
-                                <form:input class="form-control" path="name" placeholder="Wpisz nazwę łowiska"/>
-                            </div>
-                            <form:button type="submit" class="btn btn-primary">Zapisz</form:button>
+                        <form:form method="post" modelAttribute="fishingSpot">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nazwa</label>
+                            <form:input class="form-control" path="name" value="${fishingSpot.name}"/>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </div>
+                            <form:button type="submit" class="btn btn-primary">Zapisz zmiany</form:button>
                         </form:form>
                     </div>
                 </div>
@@ -71,3 +72,6 @@
 
 </body>
 </html>
+
+
+

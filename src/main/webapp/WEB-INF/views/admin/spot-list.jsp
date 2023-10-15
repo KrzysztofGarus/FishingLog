@@ -45,20 +45,34 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <!-- Page Name -->
-                <h2 class="h2">Dodaj łowisko</h2>
+                <h2 class="h2">Lista łowisk</h2>
                 <!-- Page Name -->
             </div>
             <!-- Page Content -->
             <div class="container-fluid">
                 <div class="row" style="text-align: left">
-                    <div class="mx-lg-1" style="width: 500px; padding-top: 20px">
-                        <form:form method="post" modelAttribute="fishingSpot" >
-                            <div class="mb-3">
-                                <label for="name" class="form-label" >Nazwa</label>
-                                <form:input class="form-control" path="name" placeholder="Wpisz nazwę łowiska"/>
-                            </div>
-                            <form:button type="submit" class="btn btn-primary">Zapisz</form:button>
-                        </form:form>
+                    <div>
+                        <a class="btn btn-success" href='<c:url value="/admin/spot/add"/>' role="button">Dodaj łowisko</a>
+                    </div>
+                </div>
+                <div class="row" style="text-align: center">
+                    <div class="mx-lg-1" style="width: 900px; padding-top: 20px">
+                        <table  class="table table-striped">
+                            <tr>
+                                <th>Nazwa</th>
+                                <th>Akcja</th>
+                            </tr>
+                            <c:forEach items="${fishingSpotList}" var="fishingSpot">
+                                <tr>
+                                    <td>${fishingSpot.name}</td>
+                                    <td>
+                                        <a class="btn btn-info" href='<c:url value="/admin/spot/details?id=${fishingSpot.id}"/>' role="button">Szczegóły</a>
+                                        <a class="btn btn-warning" href='<c:url value="/admin/spot/update?id=${fishingSpot.id}"/>' role="button">Edytuj</a>
+                                        <a class="btn btn-danger" href='<c:url value="/admin/spot/delete?id=${fishingSpot.id}"/>' role="button">Usuń</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </table>
                     </div>
                 </div>
             </div>
