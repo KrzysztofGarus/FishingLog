@@ -49,10 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         // TODO AuthorityAuthorizationManager.hasRole("ADMIN")
 
                         if ("ROLE_ADMIN".equals(authority.getAuthority())) {
-                            System.out.println("ADMIN logged in");
                             response.sendRedirect("/admin/dashboard");
                         } else {
-                            System.out.println("User logged in");
                             response.sendRedirect("/user/dashboard");
                         }
                     }
