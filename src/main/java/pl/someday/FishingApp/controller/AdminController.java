@@ -93,6 +93,7 @@ public class AdminController {
         DateFormatterForDTO dto = new DateFormatterForDTO();
         model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsAndWeightForSpot(id));
         model.addAttribute("SessionDateCount", dto.processDates(fishingSessionRepository.getSessionCountForSpotAndDate(id)));
+        model.addAttribute("fishingSpotName", fishingSpotRepository.findByIdOrThrow(id).getName());
         return "admin/spot-details";
     }
     @GetMapping("/spot/add")
