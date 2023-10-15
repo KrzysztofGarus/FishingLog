@@ -7,8 +7,11 @@ import org.springframework.stereotype.Repository;
 import pl.someday.FishingApp.dto.FishCountForSpotDTO;
 import pl.someday.FishingApp.dto.FishingSpotCalendarDTO;
 import pl.someday.FishingApp.model.FishingSession;
+import pl.someday.FishingApp.model.FishingSpot;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Repository
 public interface FishingSessionRepository extends JpaRepository<FishingSession, Long> {
@@ -36,6 +39,21 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
             "GROUP BY fs.date")
     List<FishingSpotCalendarDTO> getSessionCountForSpotAndDate(@Param("spotId") Long spotId);
 
+    @Query(
+            value = "SELECT fishing_spot_id FROM fishing_sessions GROUP BY fishing_spot_id ORDER BY COUNT(fishing_spot_id) DESC LIMIT 1",
+            nativeQuery = true
+    )
+    Optional<Long> findMostFrequentFishingSpotId();
+
+    default Long findMostFrequentFishingSpotIdOrThrow() {
+        return findMostFrequentFishingSpotId()
+                .orElseThrow(() -> new NoSuchElementException("No data"));
+    }
+
+    @Query("SELECT new pl.someday.FishingApp.dto.FishingSpotCalendarDTO(fs.date, COUNT(fs)) " +
+            "FROM FishingSession fs " +
+            "GROUP BY fs.date")
+    List<FishingSpotCalendarDTO> getTotalSessionCountByDate();
 
 
 
