@@ -6,10 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.someday.FishingApp.model.FishName;
 import pl.someday.FishingApp.model.FishingSpot;
-import pl.someday.FishingApp.repository.FishNameRepository;
-import pl.someday.FishingApp.repository.FishingSessionRepository;
-import pl.someday.FishingApp.repository.FishingSpotRepository;
-import pl.someday.FishingApp.repository.UserRepository;
+import pl.someday.FishingApp.repository.*;
 import pl.someday.FishingApp.service.DateFormatterForDTO;
 
 @Controller
@@ -17,32 +14,40 @@ import pl.someday.FishingApp.service.DateFormatterForDTO;
 public class AdminController {
 
     private final UserRepository userRepository;
+    private final FishRepository fishRepository;
     private final FishNameRepository fishNameRepository;
     private final FishingSpotRepository fishingSpotRepository;
     private final FishingSessionRepository fishingSessionRepository;
     @Autowired
-    public AdminController(UserRepository userRepository, FishNameRepository fishNameRepository, FishingSpotRepository fishingSpotRepository, FishingSessionRepository fishingSessionRepository) {
+    public AdminController(UserRepository userRepository, FishRepository fishRepository, FishNameRepository fishNameRepository, FishingSpotRepository fishingSpotRepository, FishingSessionRepository fishingSessionRepository) {
         this.userRepository = userRepository;
+        this.fishRepository = fishRepository;
         this.fishNameRepository = fishNameRepository;
         this.fishingSpotRepository = fishingSpotRepository;
         this.fishingSessionRepository = fishingSessionRepository;
     }
 
     @GetMapping("/dashboard")
-    public String showAdminDashboard(){
+    public String showAdminDashboard(Model model){
+        DateFormatterForDTO dto = new DateFormatterForDTO();
+        model.addAttribute("sessionDateCount", dto.processDates(fishingSessionRepository.getTotalSessionCountByDate()));
+        model.addAttribute("activeUsersCount", userRepository.countActiveUsers());
+        model.addAttribute("fishingSessionsCount", fishingSessionRepository.count());
+        model.addAttribute("fishCount", fishRepository.count());
+        model.addAttribute("popularSpot",fishingSpotRepository.findByIdOrThrow(fishingSessionRepository.findMostFrequentFishingSpotIdOrThrow()).getName());
         return "/admin/dashboard";
     }
 
     @GetMapping("/fish/list")
     public String showListOfFishNames(Model model){
         model.addAttribute("fishNameList", fishNameRepository.findAll());
-        return "/admin/fish/fish-name-list";
+        return "admin/fish-name-list";
     }
     @GetMapping("/fish/update")
     public String editFish(@RequestParam Long id, Model model){
         FishName fishName = fishNameRepository.getFishNameById(id);
         model.addAttribute("fishName",fishName);
-        return "/admin/fish/fish-update";
+        return "admin/fish-update";
     }
 
     @PostMapping("/fish/update")
@@ -56,7 +61,7 @@ public class AdminController {
     @GetMapping("/fish/add")
     public String addFish(Model model){
         model.addAttribute("fishName", new FishName());
-        return "/admin/fish/fish-add";
+        return "admin/fish-add";
     }
     @PostMapping("/fish/add")
 
@@ -68,7 +73,7 @@ public class AdminController {
     @GetMapping("/fish/delete")
     public String deleteFish(@RequestParam Long id, Model model){
         model.addAttribute("fishName", fishNameRepository.getFishNameById(id));
-        return "/admin/fish/fish-delete";
+        return "admin/fish-delete";
     }
     @PostMapping("/fish/delete")
     public String deleteFish(@RequestParam Long id){
@@ -80,7 +85,7 @@ public class AdminController {
     @GetMapping("/spot/list")
     public String showListOfFishingSpots(Model model){
         model.addAttribute("fishingSpotList", fishingSpotRepository.findAllByOrderByName());
-        return "/admin/spot/spot-list";
+        return "admin/spot-list";
     }
 
     @GetMapping("/spot/details")
@@ -88,12 +93,12 @@ public class AdminController {
         DateFormatterForDTO dto = new DateFormatterForDTO();
         model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsAndWeightForSpot(id));
         model.addAttribute("SessionDateCount", dto.processDates(fishingSessionRepository.getSessionCountForSpotAndDate(id)));
-        return "/admin/spot/spot-details";
+        return "admin/spot-details";
     }
     @GetMapping("/spot/add")
     public String addSpot(Model model){
         model.addAttribute("fishingSpot", new FishingSpot());
-        return "/admin/spot/spot-add";
+        return "admin/spot-add";
     }
     @PostMapping ("/spot/add")
     public  String addSpot(FishingSpot fishingSpot){
@@ -105,7 +110,7 @@ public class AdminController {
     public String deleteSpot(@RequestParam Long id, Model model){
         FishingSpot fishingSpot = fishingSpotRepository.findByIdOrThrow(id);
         model.addAttribute("fishingSpot", fishingSpot);
-        return "/admin/spot/spot-delete";
+        return "admin/spot-delete";
     }
 
     @PostMapping("/spot/delete")
@@ -117,7 +122,7 @@ public class AdminController {
     @GetMapping("/spot/update")
     public String editSpot(@RequestParam Long id, Model model) {
         model.addAttribute("fishingSpot", fishingSpotRepository.findByIdOrThrow(id));
-        return "/admin/spot/spot-update";
+        return "admin/spot-update";
     }
 
     @PostMapping("/spot/update")
