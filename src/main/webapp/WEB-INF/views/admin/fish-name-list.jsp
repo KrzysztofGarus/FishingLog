@@ -45,21 +45,35 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <!-- Page Name -->
-                <h2 class="h2">Edytuj rybę</h2>
+                <h2 class="h2">Lista ryb</h2>
                 <!-- Page Name -->
             </div>
             <!-- Page Content -->
             <div class="container-fluid">
                 <div class="row" style="text-align: left">
-                    <div class="mx-lg-1" style="width: 500px; padding-top: 20px">
-                        <form:form method="post" modelAttribute="fishName">
-                            <div class="mb-3">
-                            <label for="name" class="form-label">Nazwa</label>
-                            <form:input class="form-control" path="name" value="${fishName.name}"/>
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                            </div>
-                            <form:button type="submit" class="btn btn-primary">Zapisz zmiany</form:button>
-                        </form:form>
+                    <div>
+                        <a class="btn btn-success" href='<c:url value="/admin/fish/add"/>' role="button">Dodaj rybę</a>
+                    </div>
+                </div>
+                <div class="row" style="text-align: center">
+                    <div class="mx-lg-1" style="width: 900px; padding-top: 20px">
+                        <table  class="table table-striped">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nazwa</th>
+                                <th>Akcja</th>
+                            </tr>
+                            <c:forEach items="${fishNameList}" var="fishName">
+                                <tr>
+                                    <td>${fishName.id}</td>
+                                    <td>${fishName.name}</td>
+                                    <td>
+                                        <a class="btn btn-warning" href='<c:url value="/admin/fish/update?id=${fishName.id}"/>' role="button">Edytuj</a>
+                                        <a class="btn btn-danger" href='<c:url value="/admin/fish/delete?id=${fishName.id}"/>' role="button">Usuń</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -72,9 +86,3 @@
 
 </body>
 </html>
-
-
-
-
-
-

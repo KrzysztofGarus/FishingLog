@@ -45,20 +45,19 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <!-- Page Name -->
-                <h2 class="h2">Edytuj rybę</h2>
+                <h2 class="h2">Usuń łowisko</h2>
                 <!-- Page Name -->
             </div>
             <!-- Page Content -->
             <div class="container-fluid">
                 <div class="row" style="text-align: left">
                     <div class="mx-lg-1" style="width: 500px; padding-top: 20px">
-                        <form:form method="post" modelAttribute="fishName">
-                            <div class="mb-3">
-                            <label for="name" class="form-label">Nazwa</label>
-                            <form:input class="form-control" path="name" value="${fishName.name}"/>
+                        <p>Czy chcesz usunąć rybę?</p>
+                        <p>Nazwa: ${fishName.name}</p>
+                        <form:form method="post" action="${pageContext.request.contextPath}/admin/fish/delete" csrf="${_csrf.parameterName}" csrf_token="${_csrf.token}">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                            </div>
-                            <form:button type="submit" class="btn btn-primary">Zapisz zmiany</form:button>
+                            <input type="hidden" name="id" value="${fishName.id}" />
+                            <button class="btn btn-danger" type="submit">Usuń</button>
                         </form:form>
                     </div>
                 </div>
@@ -72,9 +71,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
