@@ -51,7 +51,6 @@
         title: "Kalendarz wszystkich sesji wędkarskich",
         height: 500,
         width: 1200,
-        calendar: { cellSize: 20},
         noDataPattern: {
           backgroundColor: '#008000',
           color: '#98d498'
