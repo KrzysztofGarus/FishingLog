@@ -24,7 +24,7 @@ public class FishingSessionController {
     private final FishingSpotRepository fishingSpotRepository;
 
     @Autowired
-    public FishingSessionController(UserRepository userRepository, FishingSessionRepository fishingSessionRepository, FishingSpotRepository fishingSpotRepository) {
+    public FishingSessionController(FishingSessionRepository fishingSessionRepository, FishingSpotRepository fishingSpotRepository) {
         this.fishingSessionRepository = fishingSessionRepository;
         this.fishingSpotRepository = fishingSpotRepository;
     }
