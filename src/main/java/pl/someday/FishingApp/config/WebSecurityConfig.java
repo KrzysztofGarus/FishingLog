@@ -44,10 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .successHandler((request, response, authentication) -> {
                     Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
                     for (GrantedAuthority authority : authorities) {
-                        System.out.println("Authority: " + authority.getAuthority());
-
                         // TODO AuthorityAuthorizationManager.hasRole("ADMIN")
-
                         if ("ROLE_ADMIN".equals(authority.getAuthority())) {
                             response.sendRedirect("/admin/dashboard");
                         } else {
