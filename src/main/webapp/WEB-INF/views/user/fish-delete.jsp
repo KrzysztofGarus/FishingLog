@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mapa łowisk</title>
+    <title>Usuń rybę</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -45,12 +45,23 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <!-- Page Name -->
-                <h2 class="h2">Mapa łowisk</h2>
+                <h2 class="h2">Usuń rybę</h2>
                 <!-- Page Name -->
             </div>
             <!-- Page Content -->
             <div class="container-fluid">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1HLSNikV9u6a1hv-EXVfqXdHTFMo&hl=pl&ehbc=2E312F" width="1024" height="768"></iframe>
+                <div class="mx-lg-1" style="width: 500px; padding-top: 20px">
+                    <p>Czy chcesz usunąć rybę?</p>
+                    <p>Nazwa: ${fish.fishName.name}</p>
+                    <p>Waga: ${fish.weight}</p>
+                    <p>Długość: ${fish.length}</p>
+                    <form:form method="post" action="${pageContext.request.contextPath}/user/fish/delete" csrf="${_csrf.parameterName}" csrf_token="${_csrf.token}">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        <input type="hidden" name="fishId" value="${fish.id}" />
+                        <input type="hidden" name="sessionId" value="${fish.fishingSession.id}" />
+                        <button class="btn btn-primary" type="submit">Usuń</button>
+                    </form:form>
+                </div>
             </div>
         </main>
     </div>
@@ -61,3 +72,4 @@
 
 </body>
 </html>
+
