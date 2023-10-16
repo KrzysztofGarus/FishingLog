@@ -39,10 +39,9 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
             "GROUP BY fs.date")
     List<FishingSpotCalendarDTO> getSessionCountForSpotAndDate(@Param("spotId") Long spotId);
 
-    @Query(
-            value = "SELECT fishing_spot_id FROM fishing_sessions GROUP BY fishing_spot_id ORDER BY COUNT(fishing_spot_id) DESC LIMIT 1",
-            nativeQuery = true
-    )
+    @Query(value = "SELECT fishing_spot_id FROM fishing_sessions GROUP BY fishing_spot_id ORDER BY COUNT(fishing_spot_id) DESC LIMIT 1",
+            nativeQuery = true)
+
     Optional<Long> findMostFrequentFishingSpotId();
 
     default Long findMostFrequentFishingSpotIdOrThrow() {
@@ -55,7 +54,24 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
             "GROUP BY fs.date")
     List<FishingSpotCalendarDTO> getTotalSessionCountByDate();
 
+    @Query("SELECT new pl.someday.FishingApp.dto.FishingSpotCalendarDTO(fs.date, COUNT(fs)) " +
+            "FROM FishingSession fs " +
+            "WHERE fs.user.id = :userId " +
+            "GROUP BY fs.date")
+    List<FishingSpotCalendarDTO> getTotalSessionCountByDateForUser(@Param("userId") Long userId);
 
+    @Query("SELECT COUNT(fs) FROM FishingSession fs WHERE fs.user.id = :userId")
+    Long getSessionCountForUser(@Param("userId") Long userId);
+
+    @Query(value = "SELECT fs.name " +
+            "FROM fishing_spots fs " +
+            "JOIN fishing_sessions fss ON fs.id = fss.fishing_spot_id " +
+            "WHERE fss.user_id = :userId " +
+            "GROUP BY fs.name " +
+            "ORDER BY COUNT(fss.id) DESC " +
+            "LIMIT 1",
+            nativeQuery = true)
+    String findMostFrequentFishingSpotNameForUser(@Param("userId") Long userId);
 
 }
 
