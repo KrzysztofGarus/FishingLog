@@ -11,7 +11,7 @@ import pl.someday.FishingApp.service.DateFormatterForDTO;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminController {
+public class AdminViewController {
 
     private final UserRepository userRepository;
     private final FishRepository fishRepository;
@@ -19,7 +19,7 @@ public class AdminController {
     private final FishingSpotRepository fishingSpotRepository;
     private final FishingSessionRepository fishingSessionRepository;
     @Autowired
-    public AdminController(UserRepository userRepository, FishRepository fishRepository, FishNameRepository fishNameRepository, FishingSpotRepository fishingSpotRepository, FishingSessionRepository fishingSessionRepository) {
+    public AdminViewController(UserRepository userRepository, FishRepository fishRepository, FishNameRepository fishNameRepository, FishingSpotRepository fishingSpotRepository, FishingSessionRepository fishingSessionRepository) {
         this.userRepository = userRepository;
         this.fishRepository = fishRepository;
         this.fishNameRepository = fishNameRepository;
