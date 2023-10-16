@@ -9,10 +9,15 @@
     <style>
         body {
             display: flex;
+            flex-direction: column; /* Ustawienie kierunku na kolumnowy */
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+        }
+
+        .content {
+            margin-top: 20px; /* Dodatkowy margines między elementami */
         }
 
         img {
@@ -22,8 +27,10 @@
     </style>
 </head>
 <body>
-<div>
-    <p>${errorMsg}</p>
+<div class="content">
+    <h1>${errorMsg}</h1>
+</div>
+<div class="content">
     <img src="${pageContext.request.contextPath}/img/img.png">
 </div>
 </body>
