@@ -17,3 +17,4 @@ Technologie użyte w projekcie:
 - Spring Security
 - Hibernate
 - MySQL
+- HTML/CSS/JavaScript
