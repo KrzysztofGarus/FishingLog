@@ -11,11 +11,11 @@ Ilość kół wędkarskich w Polsce to około 2.5 tys. co daje 20 roboczogodzin 
 
 Widok dla użytkownika
 
-![User](https://im2.ezgif.com/tmp/ezgif-2-752dce9941.gif)
+![User](https://imgur.com/cBBovQT)
 
 Widok dla administratora
 
-![Admin](https://im2.ezgif.com/tmp/ezgif-2-0ca8a84457.gif)
+![Admin](https://imgur.com/EeJMXdc)
 
 
 Technologie użyte w projekcie:
