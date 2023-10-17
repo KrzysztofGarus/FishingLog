@@ -6,7 +6,6 @@
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Fishing App v1.0</a>
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <span class="navbar-text" style="margin-right: 10px">Witaj, NAZWA</span>
             <a class="btn btn-outline-success" href='<c:url value="/logout"/>' role="button">Logout</a>
         </div>
     </div>
