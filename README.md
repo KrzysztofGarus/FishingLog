@@ -9,6 +9,9 @@ Ilość kół wędkarskich w Polsce to około 2.5 tys. co daje 20 roboczogodzin 
 
 <img src="https://i.imgur.com/jlBH2sz.png" alt="rejestr połowu ryb">
 
+![User](https://im2.ezgif.com/tmp/ezgif-2-752dce9941.gif)
+![Admin](https://im2.ezgif.com/tmp/ezgif-2-0ca8a84457.gif)
+
 
 Technologie użyte w projekcie:
 - Spring Boot
