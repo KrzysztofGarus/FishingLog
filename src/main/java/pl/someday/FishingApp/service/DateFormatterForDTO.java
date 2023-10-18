@@ -2,10 +2,7 @@ package pl.someday.FishingApp.service;
 
 import org.springframework.stereotype.Service;
 import pl.someday.FishingApp.dto.FishingSpotCalendarDTO;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,14 +15,14 @@ public class DateFormatterForDTO {
                 .collect(Collectors.toList());
     }
 
-    private FishingSpotCalendarDTO processDateInDTO(FishingSpotCalendarDTO dto) {
+    FishingSpotCalendarDTO processDateInDTO(FishingSpotCalendarDTO dto) {
         LocalDate date = dto.getDate();
         String yearMonthDayString = convertDateToNumber(date);
 
         return new FishingSpotCalendarDTO(date, dto.getCount(), yearMonthDayString);
     }
 
-    private String convertDateToNumber(LocalDate date) {
+    String convertDateToNumber(LocalDate date) {
         int year = date.getYear();
         int month = date.getMonthValue() - 1;
         int day = date.getDayOfMonth();
