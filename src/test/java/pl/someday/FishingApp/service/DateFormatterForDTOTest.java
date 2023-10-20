@@ -4,10 +4,18 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Klasa testowa dla DateFormatterForDTO, która odpowiada za testowanie funkcji związanych
+ * z formatowaniem dat w DTO.
+ */
 public class DateFormatterForDTOTest {
 
     private final DateFormatterForDTO dateFormatter = new DateFormatterForDTO();
 
+    /**
+     * Metoda testująca funkcję convertDateToNumber, która powinna zwracać sformatowaną datę.
+     * W JavaScript miesiące numerowane są od 0 :(
+     */
     @Test
     void convertDateToNumber_ShouldReturnFormattedDate() {
         // Given
