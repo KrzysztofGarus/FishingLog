@@ -8,6 +8,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Klasa DTO (Data Transfer Object) reprezentująca dane rejestracyjne użytkownika.
+ * Zawiera informacje wymagane do utworzenia nowego konta, takie jak imię, nazwisko,
+ * numer licencji wędkarskiej, adres email (jako nazwa użytkownika), oraz hasło.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
