@@ -81,7 +81,7 @@ public class AdminViewController {
      */
     @GetMapping("/fish/update")
     public String editFish(@RequestParam Long id, Model model){
-        FishName fishName = fishNameRepository.getFishNameById(id);
+        FishName fishName = fishNameRepository.findByIdOrThrow(id);
         model.addAttribute("fishName",fishName);
         return "admin/fish-update";
     }
@@ -95,7 +95,7 @@ public class AdminViewController {
      */
     @PostMapping("/fish/update")
     public String editFish(@RequestParam Long id, @ModelAttribute("fishName") FishName updatedFishName){
-        FishName fishName = fishNameRepository.getFishNameById(id);
+        FishName fishName = fishNameRepository.findByIdOrThrow(id);
         fishName.setName(updatedFishName.getName());
         fishNameRepository.save(fishName);
         return "redirect:/admin/fish/list";
@@ -135,7 +135,7 @@ public class AdminViewController {
      */
     @GetMapping("/fish/delete")
     public String deleteFish(@RequestParam Long id, Model model){
-        model.addAttribute("fishName", fishNameRepository.getFishNameById(id));
+        model.addAttribute("fishName", fishNameRepository.findByIdOrThrow(id));
         return "admin/fish-delete";
     }
 
@@ -147,7 +147,7 @@ public class AdminViewController {
      */
     @PostMapping("/fish/delete")
     public String deleteFish(@RequestParam Long id){
-        FishName fishName = fishNameRepository.getFishNameById(id);
+        FishName fishName = fishNameRepository.findByIdOrThrow(id);
         fishNameRepository.delete(fishName);
         return "redirect:/admin/fish/all";
     }
