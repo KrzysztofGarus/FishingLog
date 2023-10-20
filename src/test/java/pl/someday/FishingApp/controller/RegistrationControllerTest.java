@@ -11,18 +11,30 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import pl.someday.FishingApp.service.UserDetailsServiceImpl;
 import pl.someday.FishingApp.service.UserService;
 
+/**
+ * Klasa testowa dla {@code RegisterController} odpowiedzialna za testowanie zachowania
+ * metody {@code showRegistrationPage} w kontekście warstwy webowej.
+ */
 @WebMvcTest(RegisterController.class)
 public class RegistrationControllerTest {
 
+    // MockMvc umożliwiający symulację żądań HTTP w kontekście testowym
     @Autowired
     MockMvc mockMvc;
 
+    // Atrapy serwisów używanych przez kontroler
     @MockBean
     UserDetailsServiceImpl userDetailsService;
 
     @MockBean
     UserService userService;
 
+    /**
+     * Metoda testująca {@code showRegistrationPage} sprawdzającą, czy strona rejestracji jest poprawnie
+     * przekazywana dla anonimowego użytkownika.
+     *
+     * @throws Exception jeśli wystąpią błędy podczas wykonywania testu
+     */
     @Test
     void showRegistrationPageTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/register")
