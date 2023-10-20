@@ -8,6 +8,10 @@ import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 
+
+/**
+ * Klasa encji reprezentująca informacje o nazwach ryb.
+ */
 @Entity
 @Getter
 @Setter

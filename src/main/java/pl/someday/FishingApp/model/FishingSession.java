@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.List;
 
+
+/**
+ * Klasa encji reprezentująca informacje o sesji wędkarskiej.
+ */
 @Entity
 @Getter
 @Setter

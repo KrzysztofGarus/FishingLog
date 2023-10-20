@@ -4,7 +4,6 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import pl.someday.FishingApp.model.FishingSession;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -14,6 +13,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Klasa encji reprezentująca użytkownika w systemie.
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -52,6 +54,11 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FishingSession> fishingSessions;
 
+    /**
+     * Metoda zwracająca kolekcję uprawnień użytkownika.
+     *
+     * @return Kolekcja uprawnień użytkownika.
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 

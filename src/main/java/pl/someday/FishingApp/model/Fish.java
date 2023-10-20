@@ -8,6 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+/**
+ * Klasa encji reprezentująca informacje o złowionej rybie.
+ */
 @Entity
 @Getter
 @Setter
