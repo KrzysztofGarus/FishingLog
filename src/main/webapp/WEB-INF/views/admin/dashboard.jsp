@@ -41,7 +41,7 @@
       dataTable.addColumn({ type: 'number', id: 'Count' });
       dataTable.addRows([
         <c:forEach var="sdc" items="${sessionDateCount}">
-        [new Date(${sdc.stringDate}), ${sdc.count}],
+        [new Date(${sdc.stringDate()}), ${sdc.count()}],
         </c:forEach>
       ]);
 
