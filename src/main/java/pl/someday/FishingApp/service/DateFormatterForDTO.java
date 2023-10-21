@@ -32,7 +32,7 @@ public class DateFormatterForDTO {
      */
     FishingSpotCalendarDTO processDateInDTO(FishingSpotCalendarDTO dto) {
         LocalDate date = dto.getDate();
-        String yearMonthDayString = convertDateToNumber(date);
+        String yearMonthDayString = convertDate(date);
 
         return new FishingSpotCalendarDTO(date, dto.getCount(), yearMonthDayString);
     }
@@ -43,7 +43,7 @@ public class DateFormatterForDTO {
      * @param date Data do konwersji.
      * @return Sformatowana data jako ciąg znaków.
      */
-    String convertDateToNumber(LocalDate date) {
+    String convertDate(LocalDate date) {
         int year = date.getYear();
         int month = date.getMonthValue() - 1;
         int day = date.getDayOfMonth();
