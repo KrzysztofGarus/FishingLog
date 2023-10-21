@@ -10,7 +10,6 @@ import pl.someday.FishingApp.model.Fish;
 import pl.someday.FishingApp.model.FishingSession;
 import pl.someday.FishingApp.model.User;
 import pl.someday.FishingApp.repository.*;
-import pl.someday.FishingApp.service.DateFormatterForDTO;
 
 import java.beans.PropertyEditorSupport;
 import java.time.LocalDate;
@@ -18,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
- * Kontroler obsługujący interakcje użytkownika w ramach funkcji przypisanych do roli "USER".
+ * Obsługuje interakcje użytkownika w ramach funkcji przypisanych do roli "USER".
  * Udostępnia operacje takie jak przeglądanie statystyk dotyczących sesji wędkarskich,
  * dodawanie i edycja informacji o złowionych rybach oraz zarządzanie sesjami wędkarskimi.
  */
@@ -74,10 +73,8 @@ public class UserViewController {
      */
     @GetMapping("/dashboard")
     public String showUserDashboard(@AuthenticationPrincipal User user, Model model){
-        DateFormatterForDTO dto = new DateFormatterForDTO();
         Long userId = user.getId();
-        model.addAttribute("sessionDateCount", dto.processDates(fishingSessionRepository.
-             getTotalSessionCountByDateForUser(userId)));
+        model.addAttribute("sessionDateCount", fishingSessionRepository.getTotalSessionCountByDateForUser(userId));
         model.addAttribute("sessionsCount", fishingSessionRepository.getSessionCountForUser(userId));
         model.addAttribute("popularSpot", fishingSessionRepository.findMostFrequentFishingSpotNameForUser(userId));
         model.addAttribute("fishMaxLength", fishRepository.findLongestFishForUser(userId));

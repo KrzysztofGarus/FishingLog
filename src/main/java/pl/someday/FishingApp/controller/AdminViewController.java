@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.someday.FishingApp.model.FishName;
 import pl.someday.FishingApp.model.FishingSpot;
 import pl.someday.FishingApp.repository.*;
-import pl.someday.FishingApp.service.DateFormatterForDTO;
 
 /**
  * Kontroler obsługujący interakcje związane z administracją systemu.
@@ -51,8 +50,7 @@ public class AdminViewController {
      */
     @GetMapping("/dashboard")
     public String showAdminDashboard(Model model){
-        DateFormatterForDTO dto = new DateFormatterForDTO();
-        model.addAttribute("sessionDateCount", dto.processDates(fishingSessionRepository.getTotalSessionCountByDate()));
+        model.addAttribute("sessionDateCount", fishingSessionRepository.getTotalSessionCountByDate());
         model.addAttribute("activeUsersCount", userRepository.countActiveUsers());
         model.addAttribute("fishingSessionsCount", fishingSessionRepository.count());
         model.addAttribute("fishCount", fishRepository.count());
@@ -173,9 +171,8 @@ public class AdminViewController {
      */
     @GetMapping("/spot/details")
     public String showDetailsOfFishingSpot(@RequestParam Long id, Model model){
-        DateFormatterForDTO dto = new DateFormatterForDTO();
         model.addAttribute("fishNamesCount", fishingSessionRepository.getFishCountsAndWeightForSpot(id));
-        model.addAttribute("SessionDateCount", dto.processDates(fishingSessionRepository.getSessionCountForSpotAndDate(id)));
+        model.addAttribute("SessionDateCount", fishingSessionRepository.getSessionCountForSpotAndDate(id));
         model.addAttribute("fishingSpotName", fishingSpotRepository.findByIdOrThrow(id).getName());
         return "admin/spot-details";
     }
