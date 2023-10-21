@@ -22,7 +22,7 @@ public class DateFormatterForDTOTest {
         LocalDate date = LocalDate.of(2023, 10, 1);
 
         // When
-        String result = dateFormatter.convertDateToNumber(date);
+        String result = dateFormatter.convertDate(date);
 
         // Then
         assertThat(result).isEqualTo("2023, 9, 1");
