@@ -9,19 +9,7 @@ Ilość kół wędkarskich w Polsce to około 2.5 tys. co daje 20 roboczogodzin 
 
 <img src="https://i.imgur.com/jlBH2sz.png" alt="rejestr połowu ryb">
 
-Widok dla użytkownika
-
-
-![user](https://github.com/KrzysztofGarus/FishingApp/assets/117105005/b79b8260-5cfd-4537-9a72-c6e7846de7c0)
-
-
-Widok dla administratora
-
-![admin](https://github.com/KrzysztofGarus/FishingApp/assets/117105005/ac072298-9997-4722-9777-b4408542c412)
-
-
-
-Technologie użyte w projekcie:
+### Technologie użyte w projekcie:
 - Spring Boot
 - Spring Data JPA
 - Spring Web MVC
@@ -29,3 +17,27 @@ Technologie użyte w projekcie:
 - Hibernate
 - MySQL
 - HTML/CSS/JavaScript
+
+### Widok dla użytkownika
+
+
+![user](https://github.com/KrzysztofGarus/FishingApp/assets/117105005/b79b8260-5cfd-4537-9a72-c6e7846de7c0)
+
+
+### Widok dla administratora
+
+![admin](https://github.com/KrzysztofGarus/FishingApp/assets/117105005/ac072298-9997-4722-9777-b4408542c412)
+
+### Funkcje dla użytkownika:
+- dashboard, czyli widok startowy przedstawia statystyki dla danego użytkownika oraz kalendarz sesji wędkarskich
+- możliwość dodania / edycji / usuwania sesji wędkarskiej
+- możliwość dodania / edycji / usuwania ryby w ramach danej sesji wędkarskiej
+- widok mapy przedstawia lokalizację łowisk
+
+### Funkcje dla administratora:
+- dashboard, przedstawia statystyki i kalendarz dla wszystkich użytkowników oraz sesji wędkarskich
+- wyświetlanie listy łowisk
+- możliwość dodania / edycji / usuwania łowisk
+- wyświetlanie szczegółów łowiska - statystyki dla danego łowiska
+- wyświetlanie listy ryb
+- możliwość dodania / edycji / nazw ryb
