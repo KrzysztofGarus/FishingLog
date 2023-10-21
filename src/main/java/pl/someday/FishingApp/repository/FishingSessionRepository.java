@@ -3,9 +3,8 @@ package pl.someday.FishingApp.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
-import pl.someday.FishingApp.dto.FishCountForSpotDTO;
-import pl.someday.FishingApp.dto.FishingSpotCalendarDTO;
+import pl.someday.FishingApp.record.FishCountForSpotRecord;
+import pl.someday.FishingApp.record.FishingSpotCalendarRecord;
 import pl.someday.FishingApp.model.FishingSession;
 
 import java.util.List;
@@ -46,7 +45,7 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
      * @param spotId Identyfikator miejsca połowu.
      * @return Lista obiektów DTO z danymi dotyczącymi ryb dla danego miejsca połowu.
      */
-    @Query("SELECT NEW pl.someday.FishingApp.dto.FishCountForSpotDTO(fn.name, COUNT(fn.name), SUM(f.weight)) " +
+    @Query("SELECT NEW pl.someday.FishingApp.record.FishCountForSpotRecord(fn.name, COUNT(fn.name), SUM(f.weight)) " +
             "FROM FishingSession fs " +
             "JOIN Fish f ON fs.id = f.fishingSession.id " +
             "JOIN FishName fn ON f.fishName.id = fn.id " +
@@ -54,7 +53,7 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
             "WHERE spot.id = :spotId " +
             "GROUP BY fn.name " +
             "ORDER BY fn.name")
-    List<FishCountForSpotDTO> getFishCountsAndWeightForSpot(@Param("spotId") Long spotId);
+    List<FishCountForSpotRecord> getFishCountsAndWeightForSpot(@Param("spotId") Long spotId);
 
 
     /**
@@ -63,11 +62,11 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
      * @param spotId Identyfikator miejsca połowu.
      * @return Lista obiektów DTO z danymi dotyczącymi sesji wędkarskich dla danego miejsca połowu i daty.
      */
-    @Query("SELECT new pl.someday.FishingApp.dto.FishingSpotCalendarDTO(fs.date, COUNT(fs)) " +
+    @Query("SELECT new pl.someday.FishingApp.record.FishingSpotCalendarRecord(fs.date, COUNT(fs)) " +
             "FROM FishingSession fs " +
             "WHERE fs.fishingSpot.id = :spotId " +
             "GROUP BY fs.date")
-    List<FishingSpotCalendarDTO> getSessionCountForSpotAndDate(@Param("spotId") Long spotId);
+    List<FishingSpotCalendarRecord> getSessionCountForSpotAndDate(@Param("spotId") Long spotId);
 
     /**
      * Znajduje identyfikator miejsca połowu, które było najczęściej używane w sesjach wędkarskich.
@@ -94,10 +93,10 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
      *
      * @return Lista obiektów DTO z danymi dotyczącymi sesji wędkarskich dla każdej daty.
      */
-    @Query("SELECT new pl.someday.FishingApp.dto.FishingSpotCalendarDTO(fs.date, COUNT(fs)) " +
+    @Query("SELECT new pl.someday.FishingApp.record.FishingSpotCalendarRecord(fs.date, COUNT(fs)) " +
             "FROM FishingSession fs " +
             "GROUP BY fs.date")
-    List<FishingSpotCalendarDTO> getTotalSessionCountByDate();
+    List<FishingSpotCalendarRecord> getTotalSessionCountByDate();
 
     /**
      * Pobiera statystyki dotyczące ilości sesji wędkarskich dla każdej daty dla danego użytkownika.
@@ -105,11 +104,11 @@ public interface FishingSessionRepository extends JpaRepository<FishingSession, 
      * @param userId Identyfikator użytkownika.
      * @return Lista obiektów DTO z danymi dotyczącymi sesji wędkarskich dla każdej daty i użytkownika.
      */
-    @Query("SELECT new pl.someday.FishingApp.dto.FishingSpotCalendarDTO(fs.date, COUNT(fs)) " +
+    @Query("SELECT new pl.someday.FishingApp.record.FishingSpotCalendarRecord(fs.date, COUNT(fs)) " +
             "FROM FishingSession fs " +
             "WHERE fs.user.id = :userId " +
             "GROUP BY fs.date")
-    List<FishingSpotCalendarDTO> getTotalSessionCountByDateForUser(@Param("userId") Long userId);
+    List<FishingSpotCalendarRecord> getTotalSessionCountByDateForUser(@Param("userId") Long userId);
 
     /**
      * Pobiera ilość sesji wędkarskich dla danego użytkownika.
