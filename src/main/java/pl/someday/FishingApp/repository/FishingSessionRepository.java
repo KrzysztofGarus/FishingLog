@@ -15,7 +15,6 @@ import java.util.Optional;
 /**
  * Interfejs repozytorium, który umożliwia dostęp do danych związanych z sesjami wędkarskimi.
  */
-@Repository
 public interface FishingSessionRepository extends JpaRepository<FishingSession, Long> {
 
     /**

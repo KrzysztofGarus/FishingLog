@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 /**
  * Interfejs repozytorium, który umożliwia dostęp do danych związanych z nazwami ryb.
  */
-@Repository
+
 public interface FishNameRepository extends JpaRepository<FishName, Long> {
 
     /**

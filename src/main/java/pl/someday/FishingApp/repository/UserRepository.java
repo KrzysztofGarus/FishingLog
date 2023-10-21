@@ -8,7 +8,6 @@ import pl.someday.FishingApp.model.User;
 /**
  * Interfejs repozytorium do obsługi operacji bazodanowych na encji User.
  */
-@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     /**

@@ -9,7 +9,6 @@ import pl.someday.FishingApp.model.Fish;
 /**
  * Interfejs repozytorium do obsługi operacji bazodanowych na encji Fish.
  */
-@Repository
 public interface FishRepository extends JpaRepository<Fish, Long> {
 
     /**
