@@ -5,10 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+
 /**
- * Klasa DTO (Data Transfer Object) reprezentująca dane dotyczące kalendarza sesji wędkarskich
+ * Reprezentuje dane dotyczące kalendarza sesji wędkarskich
  * w kontekście danego miejsca wędkarskiego. Zawiera informacje o dacie, liczbie sesji oraz
- * opcjonalnie formę daty w postaci tekstu.
+ * formę daty w postaci tekstu.
  */
 @Getter
 @Setter
@@ -20,7 +21,8 @@ public class FishingSpotCalendarDTO {
     private String stringDate;
 
     /**
-     * Konstruktor tworzący obiekt FishingSpotCalendarDTO z podanymi danymi (bez tekstu daty).
+     * Tworzy obiekt FishingSpotCalendarDTO z podanymi danymi.
+     * Podczas tworzenia obiektu wykonuje konwersje daty.
      *
      * @param date  Data sesji wędkarskiej.
      * @param count Liczba sesji w danym dniu.
@@ -28,18 +30,20 @@ public class FishingSpotCalendarDTO {
     public FishingSpotCalendarDTO(LocalDate date, Long count) {
         this.date = date;
         this.count = count;
+        this.stringDate = convertDate(date);
     }
 
     /**
-     * Konstruktor tworzący obiekt FishingSpotCalendarDTO z podanymi danymi (z tekstem daty).
+     * Konwertuje datę na format liczbowy (RRRR, MM, DD).
      *
-     * @param date      Data sesji wędkarskiej.
-     * @param count     Liczba sesji w danym dniu.
-     * @param stringDate Tekstowa reprezentacja daty.
+     * @param date Data do konwersji.
+     * @return Sformatowana data jako ciąg znaków.
      */
-    public FishingSpotCalendarDTO(LocalDate date, Long count, String stringDate) {
-        this.date = date;
-        this.count = count;
-        this.stringDate = stringDate;
+    private String convertDate(LocalDate date) {
+        int year = date.getYear();
+        int month = date.getMonthValue() - 1;
+        int day = date.getDayOfMonth();
+
+        return year + ", " + month + ", " + day;
     }
 }
