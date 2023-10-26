@@ -9,7 +9,7 @@ import pl.someday.FishingApp.model.FishingSpot;
 import pl.someday.FishingApp.repository.*;
 
 /**
- * Kontroler obsługujący interakcje związane z administracją systemu.
+ * Obsługuje interakcje związane z administracją systemu.
  * Klasa ta zarządza różnymi operacjami administracyjnymi, takimi jak wyświetlanie
  * statystyk, zarządzanie danymi dotyczącymi ryb, miejsc wędkowania oraz użytkowników.
  */
@@ -24,7 +24,7 @@ public class AdminViewController {
     private final FishingSessionRepository fishingSessionRepository;
 
     /**
-     * Konstruktor klasy `AdminViewController`.
+     * Tworzy `AdminViewController`.
      *
      * @param userRepository          Repozytorium użytkowników.
      * @param fishRepository          Repozytorium ryb.
@@ -42,7 +42,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia panelu administracyjnego.
+     * Obsługuje żądanie wyświetlenia panelu administracyjnego.
      * Prezentuje różne statystyki i informacje dotyczące systemu dla administratora.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -59,7 +59,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia listy nazw ryb.
+     * Obsługuje żądanie wyświetlenia listy nazw ryb.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku listy nazw ryb.
@@ -71,7 +71,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie edycji nazwy ryby.
+     * Obsługuje żądanie edycji nazwy ryby.
      *
      * @param id    Identyfikator nazwy ryby do edycji.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -85,7 +85,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca proces zapisu zaktualizowanej nazwy ryby.
+     * Obsługuje proces zapisu zaktualizowanej nazwy ryby.
      *
      * @param id            Identyfikator nazwy ryby do zaktualizowania.
      * @param updatedFishName Zaktualizowana nazwa ryby.
@@ -100,7 +100,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza dodawania nowej nazwy ryby.
+     * Obsługuje żądanie wyświetlenia formularza dodawania nowej nazwy ryby.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku formularza dodawania nowej nazwy ryby.
@@ -112,7 +112,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca proces dodawania nowej nazwy ryby.
+     * Obsługuje proces dodawania nowej nazwy ryby.
      *
      * @param fishName Nowa nazwa ryby do dodania.
      * @return Przekierowanie na widok listy nazw ryb.
@@ -125,7 +125,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza potwierdzenia usunięcia nazwy ryby.
+     * Obsługuje żądanie wyświetlenia formularza potwierdzenia usunięcia nazwy ryby.
      *
      * @param id    Identyfikator nazwy ryby do usunięcia.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -138,7 +138,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca proces usunięcia nazwy ryby.
+     * Obsługuje żadanie usunięcia nazwy ryby.
      *
      * @param id Identyfikator nazwy ryby do usunięcia.
      * @return Przekierowanie na widok listy nazw ryb.
@@ -151,7 +151,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia listy miejsc wędkowania.
+     * Obsługuje żądanie wyświetlenia listy miejsc wędkowania.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku listy miejsc wędkowania.
@@ -163,7 +163,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia szczegółów danego miejsca wędkowania.
+     * Obsługuje żądanie wyświetlenia szczegółów danego łowiska.
      *
      * @param id    Identyfikator miejsca wędkowania.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -178,7 +178,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie dodania nowego miejsca wędkowania.
+     * Obsługuje żądanie dodania nowego łowiska.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku formularza dodawania nowego miejsca wędkowania.
@@ -190,7 +190,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca proces dodawania nowego miejsca wędkowania.
+     * Obsługuje proces dodawania nowego łowiska.
      *
      * @param fishingSpot Nowe miejsce wędkowania do dodania.
      * @return Przekierowanie na widok listy miejsc wędkowania.
@@ -202,7 +202,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza potwierdzenia usunięcia miejsca wędkowania.
+     * Obsługuje żądanie wyświetlenia formularza potwierdzenia usunięcia łowiska.
      *
      * @param id    Identyfikator miejsca wędkowania do usunięcia.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -216,7 +216,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca proces usunięcia miejsca wędkowania.
+     * Obsługuje proces usunięcia łowiska.
      *
      * @param id Identyfikator miejsca wędkowania do usunięcia.
      * @return Przekierowanie na widok listy miejsc wędkowania.
@@ -229,7 +229,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza edycji miejsca wędkowania.
+     * Obsługuje żądanie wyświetlenia formularza edycji łowiska.
      *
      * @param id    Identyfikator miejsca wędkowania do edycji.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -242,7 +242,7 @@ public class AdminViewController {
     }
 
     /**
-     * Metoda obsługująca proces zapisu zaktualizowanego miejsca wędkowania.
+     * Obsługuje proces zapisu zaktualizowanego łowiska.
      *
      * @param id               Identyfikator miejsca wędkowania do zaktualizowania.
      * @param updatedFishingSpot Zaktualizowane dane miejsca wędkowania.
