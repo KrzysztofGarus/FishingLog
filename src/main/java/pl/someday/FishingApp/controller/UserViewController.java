@@ -30,7 +30,7 @@ public class UserViewController {
     private final FishRepository fishRepository;
 
     /**
-     * Konstruktor kontrolera, wstrzykujący zależności do repozytoriów.
+     * Tworzy kontroler i wstrzykuje zależności do repozytoriów.
      *
      * @param fishingSessionRepository Repozytorium sesji wędkarskich.
      * @param fishingSpotRepository    Repozytorium miejsc wędkowania.
@@ -46,7 +46,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda inicjalizująca binder dla kontrolera.
+     * Inicjalizuje binder dla kontrolera.
      * Binder jest używany do konfiguracji przekształceń danych wejściowych,
      * takich jak konwersja tekstu na datę.
      *
@@ -63,9 +63,9 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia panelu użytkownika (dashboard).
+     * Obsługuje żądanie wyświetlenia panelu użytkownika (dashboard).
      * Wyświetla statystyki dotyczące sesji wędkarskich, takie jak liczba sesji, popularne miejsce,
-     * maksymalna długość i waga złowionych ryb.
+     * maksymalna długość i waga złowionej ryby.
      *
      * @param user  Zalogowany użytkownik.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -83,7 +83,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia mapy.
+     * Obsługuje żądanie wyświetlenia mapy.
      *
      * @return Nazwa widoku mapy.
      */
@@ -93,7 +93,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza dodawania nowego zarejestrowanego rybu do sesji wędkarskiej.
+     * Obsługuje żądanie wyświetlenia formularza dodawania nowej ryby do sesji wędkarskiej.
      *
      * @param sessionId Identyfikator sesji wędkarskiej.
      * @param model     Model Spring, używany do przekazywania danych do widoku.
@@ -109,7 +109,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca proces dodawania nowego zarejestrowanego rybu do sesji wędkarskiej.
+     * Obsługuje proces dodawania nowej ryby do sesji wędkarskiej.
      *
      * @param fish Nowy ryba do dodania.
      * @return Przekierowanie na widok listy sesji wędkarskich.
@@ -121,7 +121,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza edycji informacji o zarejestrowanym rybie.
+     * Obsługuje żądanie wyświetlenia formularza edycji informacji o rybie.
      *
      * @param id    Identyfikator ryby do edycji.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -136,7 +136,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca proces edycji informacji o zarejestrowanym rybie.
+     * Obsługuje proces edycji informacji o rybie.
      *
      * @param id          Identyfikator ryby do edycji.
      * @param updatedFish Zaktualizowana informacja o rybie.
@@ -153,7 +153,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza potwierdzenia usunięcia informacji o zarejestrowanym rybie.
+     * Obsługuje żądanie wyświetlenia formularza potwierdzenia usunięcia informacji o rybie.
      *
      * @param id    Identyfikator ryby do usunięcia.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -166,7 +166,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca proces usunięcia informacji o zarejestrowanym rybie z sesji wędkarskiej.
+     * Obsługuje proces usunięcia informacji o zarejestrowanym rybie z sesji wędkarskiej.
      *
      * @param fishId    Identyfikator ryby do usunięcia.
      * @param sessionId Identyfikator sesji wędkarskiej, z której usuwana jest ryba.
@@ -183,7 +183,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza dodawania nowej sesji wędkarskiej.
+     * Obsługuje żądanie wyświetlenia formularza dodawania nowej sesji wędkarskiej.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku formularza dodawania sesji wędkarskiej.
@@ -196,7 +196,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca proces dodawania nowej sesji wędkarskiej dla zalogowanego użytkownika.
+     * Obsługuje proces dodawania nowej sesji wędkarskiej dla zalogowanego użytkownika.
      *
      * @param user           Zalogowany użytkownik.
      * @param fishingSession Nowa sesja wędkarska do dodania.
@@ -210,7 +210,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza potwierdzenia usunięcia sesji wędkarskiej.
+     * Obsługuje żądanie wyświetlenia formularza potwierdzenia usunięcia sesji wędkarskiej.
      *
      * @param id    Identyfikator sesji wędkarskiej do usunięcia.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -222,7 +222,7 @@ public class UserViewController {
         return "/user/session-delete";
     }
     /**
-     * Metoda obsługująca proces usunięcia sesji wędkarskiej dla zalogowanego użytkownika.
+     * Obsługuje proces usunięcia sesji wędkarskiej.
      *
      * @param id Identyfikator sesji wędkarskiej do usunięcia.
      * @return Przekierowanie na widok listy sesji wędkarskich.
@@ -235,7 +235,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia listy sesji wędkarskich użytkownika.
+     * Obsługuje żądanie wyświetlenia listy sesji wędkarskich użytkownika.
      *
      * @param user  Zalogowany użytkownik.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -248,7 +248,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia formularza edycji istniejącej sesji wędkarskiej.
+     * Obsługuje żądanie wyświetlenia formularza edycji istniejącej sesji wędkarskiej.
      *
      * @param id    Identyfikator sesji wędkarskiej do edycji.
      * @param model Model Spring, używany do przekazywania danych do widoku.
@@ -263,7 +263,7 @@ public class UserViewController {
     }
 
     /**
-     * Metoda obsługująca proces edycji sesji wędkarskiej dla zalogowanego użytkownika.
+     * Obsługuje proces edycji sesji wędkarskiej dla zalogowanego użytkownika.
      *
      * @param id            Identyfikator sesji wędkarskiej do edycji.
      * @param updatedSession Zaktualizowane informacje o sesji wędkarskiej.

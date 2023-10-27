@@ -13,8 +13,7 @@ import javax.validation.Valid;
 
 
 /**
- * Kontroler obsługujący proces rejestracji użytkowników.
- * Klasa ta jest odpowiedzialna za obsługę żądań związanych z rejestracją nowych użytkowników,
+ * Obsługuje żądania związane z rejestracją nowych użytkowników,
  * prezentację widoku rejestracji oraz przetwarzanie danych wprowadzonych przez użytkownika
  * podczas rejestracji.
  */
@@ -24,7 +23,7 @@ public class RegisterController {
     private final UserService userService;
 
     /**
-     * Konstruktor klasy `RegisterController`.
+     * Tworzy `RegisterController`.
      *
      * @param userService Serwis obsługujący operacje związane z użytkownikami.
      */
@@ -34,7 +33,7 @@ public class RegisterController {
     }
 
     /**
-     * Metoda obsługująca żądanie wyświetlenia strony rejestracji.
+     * Obsługuje żądanie wyświetlenia strony rejestracji.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku strony rejestracji.
@@ -46,7 +45,7 @@ public class RegisterController {
     }
 
     /**
-     * Metoda obsługująca proces rejestracji nowego użytkownika.
+     * Obsługuje proces rejestracji nowego użytkownika.
      *
      * @param userDto Obiekt DTO (Data Transfer Object) zawierający dane nowego użytkownika.
      * @param result Obiekt `BindingResult` do przechwytywania błędów walidacji.

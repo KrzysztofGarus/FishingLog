@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import java.util.NoSuchElementException;
 
 /**
- * Klasa obsługująca wyjątki globalne w aplikacji.
- * Jest to kontroler porady (`ControllerAdvice`), który obsługuje konkretne wyjątki i definiuje,
- * jak aplikacja powinna reagować na te wyjątki.
+ * Obsługuje konkretne wyjątki i definiuje, jak aplikacja powinna reagować na te wyjątki.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {

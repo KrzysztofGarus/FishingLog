@@ -24,7 +24,7 @@ public class AdminViewController {
     private final FishingSessionRepository fishingSessionRepository;
 
     /**
-     * Tworzy `AdminViewController`.
+     * Tworzy AdminViewController.
      *
      * @param userRepository          Repozytorium użytkowników.
      * @param fishRepository          Repozytorium ryb.
@@ -151,10 +151,10 @@ public class AdminViewController {
     }
 
     /**
-     * Obsługuje żądanie wyświetlenia listy miejsc wędkowania.
+     * Obsługuje żądanie wyświetlenia listy łowisk.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
-     * @return Nazwa widoku listy miejsc wędkowania.
+     * @return Nazwa widoku listy łowisk.
      */
     @GetMapping("/spot/list")
     public String showListOfFishingSpots(Model model){
@@ -167,7 +167,7 @@ public class AdminViewController {
      *
      * @param id    Identyfikator miejsca wędkowania.
      * @param model Model Spring, używany do przekazywania danych do widoku.
-     * @return Nazwa widoku zawierającego szczegóły miejsca wędkowania.
+     * @return Nazwa widoku zawierającego szczegóły łowiska.
      */
     @GetMapping("/spot/details")
     public String showDetailsOfFishingSpot(@RequestParam Long id, Model model){
@@ -181,7 +181,7 @@ public class AdminViewController {
      * Obsługuje żądanie dodania nowego łowiska.
      *
      * @param model Model Spring, używany do przekazywania danych do widoku.
-     * @return Nazwa widoku formularza dodawania nowego miejsca wędkowania.
+     * @return Nazwa widoku formularza dodawania nowego łowiska.
      */
     @GetMapping("/spot/add")
     public String addSpot(Model model){
@@ -192,7 +192,7 @@ public class AdminViewController {
     /**
      * Obsługuje proces dodawania nowego łowiska.
      *
-     * @param fishingSpot Nowe miejsce wędkowania do dodania.
+     * @param fishingSpot łowisko do dodania.
      * @return Przekierowanie na widok listy miejsc wędkowania.
      */
     @PostMapping ("/spot/add")
@@ -204,9 +204,9 @@ public class AdminViewController {
     /**
      * Obsługuje żądanie wyświetlenia formularza potwierdzenia usunięcia łowiska.
      *
-     * @param id    Identyfikator miejsca wędkowania do usunięcia.
+     * @param id    Identyfikator łowiska do usunięcia.
      * @param model Model Spring, używany do przekazywania danych do widoku.
-     * @return Nazwa widoku formularza potwierdzenia usunięcia miejsca wędkowania.
+     * @return Nazwa widoku formularza potwierdzenia usunięcia łowiska.
      */
     @GetMapping("/spot/delete")
     public String deleteSpot(@RequestParam Long id, Model model){
@@ -218,8 +218,8 @@ public class AdminViewController {
     /**
      * Obsługuje proces usunięcia łowiska.
      *
-     * @param id Identyfikator miejsca wędkowania do usunięcia.
-     * @return Przekierowanie na widok listy miejsc wędkowania.
+     * @param id Identyfikator łowiska do usunięcia.
+     * @return Przekierowanie na widok listy łowisk.
      */
     @PostMapping("/spot/delete")
     public String deleteSpot(@RequestParam Long id){
@@ -231,9 +231,9 @@ public class AdminViewController {
     /**
      * Obsługuje żądanie wyświetlenia formularza edycji łowiska.
      *
-     * @param id    Identyfikator miejsca wędkowania do edycji.
+     * @param id    Identyfikator łowiska do edycji.
      * @param model Model Spring, używany do przekazywania danych do widoku.
-     * @return Nazwa widoku formularza edycji miejsca wędkowania.
+     * @return Nazwa widoku formularza edycji łowiska.
      */
     @GetMapping("/spot/update")
     public String editSpot(@RequestParam Long id, Model model) {
@@ -244,9 +244,9 @@ public class AdminViewController {
     /**
      * Obsługuje proces zapisu zaktualizowanego łowiska.
      *
-     * @param id               Identyfikator miejsca wędkowania do zaktualizowania.
-     * @param updatedFishingSpot Zaktualizowane dane miejsca wędkowania.
-     * @return Przekierowanie na widok listy miejsc wędkowania.
+     * @param id               Identyfikator łowiska do zaktualizowania.
+     * @param updatedFishingSpot Zaktualizowane dane łowiska.
+     * @return Przekierowanie na widok listy łowisk.
      */
     @PostMapping("/spot/update")
     public String editSpot(@RequestParam Long id, @ModelAttribute("fishingSpot") FishingSpot updatedFishingSpot){
