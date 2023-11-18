@@ -1,4 +1,4 @@
-package pl.someday.FishingApp.config;
+package pl.someday.FishingApp.security;
 
 
 import org.springframework.context.annotation.Bean;
