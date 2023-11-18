@@ -30,8 +30,7 @@ public class RegistrationControllerTest {
     UserService userService;
 
     /**
-     * Metoda testująca {@code showRegistrationPage} sprawdzającą, czy strona rejestracji jest poprawnie
-     * przekazywana dla anonimowego użytkownika.
+     * Testuje czy strona rejestracji jest poprawnie przekazywana dla anonimowego użytkownika.
      *
      * @throws Exception jeśli wystąpią błędy podczas wykonywania testu
      */

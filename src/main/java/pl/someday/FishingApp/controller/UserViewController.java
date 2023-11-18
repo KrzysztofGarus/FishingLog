@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import pl.someday.FishingApp.model.CustomUser;
 import pl.someday.FishingApp.model.Fish;
 import pl.someday.FishingApp.model.FishingSession;
 import pl.someday.FishingApp.model.User;
@@ -67,13 +68,13 @@ public class UserViewController {
      * Wyświetla statystyki dotyczące sesji wędkarskich, takie jak liczba sesji, popularne miejsce,
      * maksymalna długość i waga złowionej ryby.
      *
-     * @param user  Zalogowany użytkownik.
+     * @param customUser  Zalogowany użytkownik.
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku panelu użytkownika.
      */
     @GetMapping("/dashboard")
-    public String showUserDashboard(@AuthenticationPrincipal User user, Model model){
-        Long userId = user.getId();
+    public String showUserDashboard(@AuthenticationPrincipal CustomUser customUser, Model model){
+        Long userId = customUser.getId();
         model.addAttribute("sessionDateCount", fishingSessionRepository.getTotalSessionCountByDateForUser(userId));
         model.addAttribute("sessionsCount", fishingSessionRepository.getSessionCountForUser(userId));
         model.addAttribute("popularSpot", fishingSessionRepository.findMostFrequentFishingSpotNameForUser(userId));
@@ -237,13 +238,13 @@ public class UserViewController {
     /**
      * Obsługuje żądanie wyświetlenia listy sesji wędkarskich użytkownika.
      *
-     * @param user  Zalogowany użytkownik.
+     * @param customUser  Zalogowany użytkownik.
      * @param model Model Spring, używany do przekazywania danych do widoku.
      * @return Nazwa widoku listy sesji wędkarskich użytkownika.
      */
     @GetMapping("/session/list")
-    public String showUserSessions(@AuthenticationPrincipal User user, Model model){
-        model.addAttribute("fishingSessions", fishingSessionRepository.findByUserUsernameOrderByDateDesc(user.getUsername()));
+    public String showUserSessions(@AuthenticationPrincipal CustomUser customUser, Model model){
+        model.addAttribute("fishingSessions", fishingSessionRepository.findByUserUsernameOrderByDateDesc(customUser.getUsername()));
         return "user/session-list";
     }
 

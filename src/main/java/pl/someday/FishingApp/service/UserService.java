@@ -7,6 +7,7 @@ import pl.someday.FishingApp.dto.UserRegistrationDTO;
 import pl.someday.FishingApp.model.User;
 import pl.someday.FishingApp.repository.UserRepository;
 
+
 /**
  * Serwis obsługujący operacje związane z użytkownikami.
  */
