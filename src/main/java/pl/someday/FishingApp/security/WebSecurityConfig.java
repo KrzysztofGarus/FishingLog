@@ -1,14 +1,13 @@
 package pl.someday.FishingApp.security;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authorization.AuthorityAuthorizationManager;
-import org.springframework.security.authorization.AuthorizationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -30,6 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      *
      * @param userDetailsService Serwis obsługujący szczegóły użytkowników.
      */
+    @Autowired
     public WebSecurityConfig(UserDetailsServiceImpl userDetailsService){
         this.userDetailsService = userDetailsService;
     }
@@ -44,10 +44,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
-    @Bean
-    public AuthorityAuthorizationManager<Authentication> authorityAuthorizationManager() {
-        return AuthorityAuthorizationManager.hasRole("ADMIN");
-    }
 
     /**
      * Konfiguracja menedżera autentykacji.
@@ -70,7 +66,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        AuthorizationManager<Authentication> authorityAuthorizationManager = authorityAuthorizationManager();
 
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
@@ -81,8 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .successHandler((request, response, authentication) -> {
-                    boolean isAdmin = authorityAuthorizationManager.check(() -> authentication, null).isGranted();
-                    if (isAdmin) {
+                    if (AuthorityAuthorizationManager.hasRole("ADMIN").check(() -> authentication, null).isGranted()) {
                         response.sendRedirect("/admin/dashboard");
                     } else {
                         response.sendRedirect("/user/dashboard");
@@ -90,6 +84,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 })
                 .and()
                 .csrf()
-                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());;
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 }
