@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AuthorizationManager<Authentication> authorityAuthorizationManager() {
+    public AuthorityAuthorizationManager<Authentication> authorityAuthorizationManager() {
         return AuthorityAuthorizationManager.hasRole("ADMIN");
     }
 
