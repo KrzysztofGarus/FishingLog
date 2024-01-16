@@ -13,7 +13,7 @@ import pl.someday.FishingApp.repository.UserRepository;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserRepository userRepository;
-    private final CustomUserService customUserService;
+    
 
     /**
      * Konstruktor klasy UserDetailsServiceImpl.
@@ -23,7 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     public UserDetailsServiceImpl(UserRepository userRepository, CustomUserService customUserService) {
         this.userRepository = userRepository;
-        this.customUserService = customUserService;
     }
 
     /**
