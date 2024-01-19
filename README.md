@@ -1,15 +1,14 @@
-# FishingApp
+# FishingLog
 
-Aplikacja ma na celu wyeliminowanie potrzeby każdorazowego wypełniania papierowej wersji rejestru połowu ryb dla danej sesji wędkarskiej oraz ułatwienie zbierania danych z sesji.
+The application aims to eliminate the need for filling out a paper version of the fishing log for each fishing session and facilitate the collection of data from the sessions.
 
-Co roku w Polsce około 600 tys. wędkarzy wypełnia taki rejestr
+Each year in Poland, approximately 600,000 anglers fill out such logs.
 
-Aby przetworzyć dane - przy optymistycznym założeniu, że jeden rejestr to 5 min pracy należy poświęcić 50 tys. roboczogodzin aby wpisać te dane do "excela".
-Ilość kół wędkarskich w Polsce to około 2.5 tys. co daje 20 roboczogodzin w każdym kole.
+To process the data, assuming an optimistic scenario that one log takes 5 minutes to complete, it would require 50,000 man-hours to enter this data into an Excel spreadsheet. With around 2,500 fishing clubs in Poland, this translates to 20 man-hours per club.
 
 <img src="https://i.imgur.com/jlBH2sz.png" alt="rejestr połowu ryb">
 
-### Technologie użyte w projekcie:
+### Technologies used:
 - Spring Boot
 - Spring Data JPA
 - Spring Web MVC
@@ -18,26 +17,28 @@ Ilość kół wędkarskich w Polsce to około 2.5 tys. co daje 20 roboczogodzin 
 - MySQL
 - HTML/CSS/JavaScript
 
-### Widok dla użytkownika
+### User view
 
 
 ![user](https://github.com/KrzysztofGarus/FishingApp/assets/117105005/b79b8260-5cfd-4537-9a72-c6e7846de7c0)
 
 
-### Widok dla administratora
+### Admin view
 
 ![admin](https://github.com/KrzysztofGarus/FishingApp/assets/117105005/ac072298-9997-4722-9777-b4408542c412)
 
-### Funkcje dla użytkownika:
-- dashboard, czyli widok startowy przedstawia statystyki dla danego użytkownika oraz kalendarz sesji wędkarskich
-- możliwość dodania / edycji / usuwania sesji wędkarskiej
-- możliwość dodania / edycji / usuwania ryby w ramach danej sesji wędkarskiej
-- widok mapy przedstawia lokalizację łowisk
 
-### Funkcje dla administratora:
-- dashboard, przedstawia statystyki i kalendarz dla wszystkich użytkowników oraz sesji wędkarskich
-- wyświetlanie listy łowisk
-- możliwość dodania / edycji / usuwania łowisk
-- wyświetlanie szczegółów łowiska - statystyki dla danego łowiska
-- wyświetlanie listy ryb
-- możliwość dodania / edycji / nazw ryb
+
+### User features:
+- Dashboard, providing a starting view with statistics for the user and a calendar of fishing sessions.
+- Ability to add / edit / delete fishing sessions.
+- Ability to add / edit / delete fish within a specific fishing session.
+- Map view displaying the locations of fishing spots.
+
+### Admin features:
+- Dashboard, presenting statistics and a calendar for all users and fishing sessions.
+- Displaying a list of fishing spots.
+- Ability to add / edit / delete fishing spots.
+- Displaying details of a fishing spot - statistics for a specific fishing spot.
+- Displaying a list of fish.
+- Ability to add / edit / delete fish names.
