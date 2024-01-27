@@ -2,7 +2,7 @@
 
 The application aims to eliminate the need for filling out a paper version of the fishing log for each fishing session and facilitate the collection of data from the sessions.
 
-Each year in Poland, approximately 600,000 anglers fill out such logs.
+In Poland, there are approximately 600,000 registered anglers.
 
 To process the data, assuming an optimistic scenario that one log takes 5 minutes to complete, it would require 50,000 man-hours to enter this data into an Excel spreadsheet. With around 2,500 fishing clubs in Poland, this translates to 20 man-hours per club.
 
